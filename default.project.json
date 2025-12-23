@@ -1,6 +1,14 @@
 {
   "name": "aspi",
   "tree": {
-    "$className": "DataModel"
+    "$className": "DataModel",
+    
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "AsPI": {
+        "$className": "Folder",
+        "$path": "src/AsPI"
+      }
+    }
   }
 }
