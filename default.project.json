@@ -9,6 +9,14 @@
         "$className": "Folder",
         "$path": "src/AsPI"
       }
+    },
+
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "AsPIServer": {
+        "$className": "Folder",
+        "$path": "src/AsPIServer"
+      }
     }
   }
 }
