@@ -14,17 +14,36 @@ For more information, visit:
 https://github.com/Astral-Interactive-Games/aspi
 ]]
 
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local AsPI = ReplicatedStorage:WaitForChild("AsPI")
+
+local Include = AsPI:WaitForChild("Include")
+
+local ErrorHandler = require(Include.ErrorHandler)
 
 local Bootstrap = {}
 
--- Internal state
-local initialized = true
+-- Different states of the bootstrap :
+----------------------------------------------
+-- init     :   in the initialization phase
+-- booting  :   in the process of booting
+-- ready    :   the process is complete
 
-function Bootstrap.init(): ()
-    if initialized then
-        error("[Bootstrap] AsPI already initialized")
+Bootstrap.__state = "init"
+Bootstrap.__packages = {}
+
+setmetatable(Bootstrap, {
+    __index = function(_, key: string): string
+        return ErrorHandler.BootstrapException.KeyNotExist(key)
     end
-    initialized = true
+})
+
+function Bootstrap.init()
+    if Bootstrap.__state ~= "init" then
+        ErrorHandler.BootstrapException.AlreadyInitialized()
+    end
+
+    Bootstrap.__state = "booting"
 end
 
 return Bootstrap
