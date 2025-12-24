@@ -21,6 +21,8 @@ local Include = AsPI:WaitForChild("Include")
 
 local ErrorHandler = require(Include.ErrorHandler)
 
+local InternalLoader = require(Include.InternalLoader)
+
 local Bootstrap = {}
 
 -- Different states of the bootstrap :
@@ -28,7 +30,6 @@ local Bootstrap = {}
 -- init     :   in the initialization phase
 -- booting  :   in the process of booting
 -- ready    :   the process is complete
-
 Bootstrap.__state = "init"
 Bootstrap.__packages = {}
 
@@ -38,12 +39,14 @@ setmetatable(Bootstrap, {
     end
 })
 
-function Bootstrap.init()
+function Bootstrap.init(): ()
     if Bootstrap.__state ~= "init" then
         ErrorHandler.BootstrapException.AlreadyInitialized()
     end
 
     Bootstrap.__state = "booting"
+
+    InternalLoader.init(Bootstrap)
 end
 
 return Bootstrap
