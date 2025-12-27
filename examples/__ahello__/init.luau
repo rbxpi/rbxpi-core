@@ -12,7 +12,7 @@ return {
     Name = "__ahello__",
     Version = "1.0.0",
     Description = "A simple example of a package.",
-    Main = "PackageFolder/Index.luau",
+    Main = "Out/Index.luau",
     Author = "Astral Interactive Games (https://github.com/Astral-Interactive-Games)",
     License = {LICENSE[1], LICENSE[2]},
     Repository = "https://github.com/Astral-Interactive-Games/aspi/tree/master/examples/__ahello__",
