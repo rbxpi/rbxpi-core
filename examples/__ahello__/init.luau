@@ -6,7 +6,7 @@ Licensed under the MIT License. See LICENSE file in the project root for license
 This package provides a simple "Hello, World!" functionality as an example package for the AsPI library.
 ]]
 
-local LICENSE = script.Parent.LICENSE
+local LICENSE = require(script.LICENSE)
 
 return {
     Name = "__ahello__",
