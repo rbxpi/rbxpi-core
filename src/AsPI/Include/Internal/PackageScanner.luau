@@ -17,7 +17,7 @@ local PackagerScanner = {}
 PackagerScanner.__packages = {}
 
 local function isValidePackage(instance: any): boolean
-    if instance:IsA("Folder") or not instance.Name:match("^[A-Za-z_]+$") or instance.Name == "site-packages" then
+    if not instance:IsA("ModuleScript") or not instance.Name:match("^[A-Za-z_]+$") then
         return false
     end
     return true
