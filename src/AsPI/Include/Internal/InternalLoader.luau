@@ -19,8 +19,8 @@ local InternalAPI = require(Internal.InternalAPI)
 
 local InternalLoader = {}
 
-function InternalLoader.init(Bootstrap): ()
-    Bootstrap.__internal = InternalAPI
+function InternalLoader.init(): ()
+    return InternalAPI
 end
 
 return InternalLoader
