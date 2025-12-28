@@ -1,29 +1,29 @@
 --[[
-Astral Package Index API Module
+Roblox Package Index API Module
 
-This module provides the API for the AsPI.
+This module provides the API for the RbxPI.
 It includes functions and services for interacting with the library's features.
 
 Usage :
     local ReplicatedStorage = game:GetService("ReplicatedStorage")
-    local AsPI = ReplicatedStorage:WaitForChild("AsPI")
+    local RbxPI = ReplicatedStorage:WaitForChild("RbxPI")
 
-    local API = require(AsPI.API)
+    local API = require(RbxPI.API)
 
     local package = API.PackageName
 
-Copyright 2025 Astral Interactive Games
+Copyright 2025 RbxPI
 Licensed under the Apache License, Version 2.0
 You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
 
 For more information, visit:
-https://github.com/Astral-Interactive-Games/aspi
+https://github.com/rbxpi/rbxpi-core
 ]]
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local AsPI = ReplicatedStorage:WaitForChild("AsPI")
+local RbxPI = ReplicatedStorage:WaitForChild("RbxPI")
 
-local Include = AsPI:WaitForChild("Include")
+local Include = RbxPI:WaitForChild("Include")
 local Internal = Include:WaitForChild("Internal")
 
 local ErrorHandler = require(Include.ErrorHandler)
