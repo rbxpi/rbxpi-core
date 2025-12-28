@@ -1,21 +1,20 @@
 --[[
-Internal API for Wander Engine Library
-   
-This module provides essential metadata and licensing information for the AsPI Library.
+Internal API for Roblox Package Index
+This module provides essential metadata and licensing information for the RbxPI Library.
 It includes functions to retrieve the library's version, author, and license details.
 Additionally, it serves as a reference for the Apache-2.0 license under which the library is distributed.
 ]]
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local AsPI = ReplicatedStorage:WaitForChild("AsPI")
+local RbxPI = ReplicatedStorage:WaitForChild("RbxPI")
 
 local InternalAPI = {}
 
-InternalAPI.version = AsPI.Version.Value
-InternalAPI.author = "Astral Interactive Games"
+InternalAPI.version = RbxPI.Version.Value
+InternalAPI.author = "RbxPI"
 InternalAPI.license = "Apache License, Version 2.0"
-InternalAPI.copyright = "Copyright 2025 Astral Interactive Games"
-InternalAPI.url = "https://github.com/Astral-Interactive-Games/aspi"
+InternalAPI.copyright = "Copyright 2025 RbxPI"
+InternalAPI.url = "https://github.com/rbxpi/rbxpi-core"
 InternalAPI.licenseinfo = [[Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/
@@ -204,7 +203,7 @@ InternalAPI.licenseinfo = [[Apache License
       same "printed page" as the copyright notice for easier
       identification within third-party archives.
 
-   Copyright 2025 Astral Interactive Games
+   Copyright 2025 RbxPI
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

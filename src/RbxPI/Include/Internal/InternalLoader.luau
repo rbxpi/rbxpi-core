@@ -1,7 +1,7 @@
 --[[
-AsPI internal loader
+RbxPI internal loader
 
-This module is responsible for initializing and exposing the internal API of AsPI.
+This module is responsible for initializing and exposing the internal API of RbxPI.
 It loads core internal systems and binds them to the bootstrap environment,
 making internal utilities available before any external package is loaded.
 
@@ -10,9 +10,9 @@ on user-defined or third-party packages.
 ]]
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local AsPI = ReplicatedStorage:WaitForChild("AsPI")
+local RbxPI = ReplicatedStorage:WaitForChild("RbxPI")
 
-local Include = AsPI:WaitForChild("Include")
+local Include = RbxPI:WaitForChild("Include")
 local Internal = Include:WaitForChild("Internal")
 
 local InternalAPI = require(Internal.InternalAPI)
