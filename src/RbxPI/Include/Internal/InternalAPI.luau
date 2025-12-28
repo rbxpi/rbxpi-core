@@ -1,4 +1,21 @@
-Apache License
+--[[
+Internal API for Roblox Package Index
+This module provides essential metadata and licensing information for the RbxPI Library.
+It includes functions to retrieve the library's version, author, and license details.
+Additionally, it serves as a reference for the Apache-2.0 license under which the library is distributed.
+]]
+
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RbxPI = ReplicatedStorage:WaitForChild("RbxPI")
+
+local InternalAPI = {}
+
+InternalAPI.version = RbxPI.Version.Value
+InternalAPI.author = "RbxPI"
+InternalAPI.license = "Apache License, Version 2.0"
+InternalAPI.copyright = "Copyright 2025 RbxPI"
+InternalAPI.url = "https://github.com/rbxpi/rbxpi-core"
+InternalAPI.licenseinfo = [[Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/
 
@@ -198,4 +215,6 @@ Apache License
    distributed under the License is distributed on an "AS IS" BASIS,
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
-   limitations under the License.
+   limitations under the License.]]
+
+return InternalAPI

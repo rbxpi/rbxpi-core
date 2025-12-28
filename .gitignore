@@ -39,3 +39,8 @@ luac.out
 *.x86_64
 *.hex
 
+# Roblox standard library
+roblox.yml
+
+# Mapping of the complete project structure
+sourcemap.json

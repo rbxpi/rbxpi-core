@@ -1,0 +1,19 @@
+{
+  "name": "rbxpi-core",
+  "tree": {
+    "$className": "DataModel",
+    
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "RbxPI": {
+        "$className": "Folder",
+        "$path": "src/RbxPI/"
+      }
+    },
+
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "$path": "tests/server/"
+    }
+  }
+}
