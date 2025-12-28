@@ -40,7 +40,15 @@ end
 -- It is responsible for defining the functions and services exposed by the API.
 -- These may include utility functions, data structures, and other components.
 -- Please do not modify this file directly.
-local API = {}:: {}
+local API = {}:: {
+    -- Internal API Metadata
+    version: string,
+    author: string,
+    license: string,
+    copyright: string,
+    url: string,
+    licenseinfo: string
+}
 
 setmetatable(API, {
     __index = function(_, key: string): any
