@@ -1,13 +1,13 @@
 {
-  "name": "aspi",
+  "name": "rbxpi-core",
   "tree": {
     "$className": "DataModel",
     
     "ReplicatedStorage": {
       "$className": "ReplicatedStorage",
-      "AsPI": {
+      "RbxPI": {
         "$className": "Folder",
-        "$path": "src/AsPI"
+        "$path": "src/RbxPI/"
       }
     },
 
