@@ -1,7 +1,7 @@
 --[[
-Astral Package Index Error Handling
+Roblox Package Index Error Handling
 
-This module provides error handling utilities for the AsPI.
+This module provides error handling utilities for the RbxPI.
 It includes function for logging errors, displaying error messages, and handling errors gracefully.
 ]]
 
