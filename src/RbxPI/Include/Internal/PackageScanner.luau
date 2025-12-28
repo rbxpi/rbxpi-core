@@ -1,15 +1,15 @@
 --[[
-    PackageScanner Module
-    Scans the Lib folder for valid packages and stores them in a table.
-    This module is used internally by the Bootstrap process to identify
-    and register available packages.
+PackageScanner Module
+Scans the Lib folder for valid packages and stores them in a table.
+This module is used internally by the Bootstrap process to identify
+and register available packages.
 ]]
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local AsPI = ReplicatedStorage:WaitForChild("AsPI")
+local RbxPI = ReplicatedStorage:WaitForChild("RbxPI")
 
-local Lib = AsPI:WaitForChild("Lib")
-local Include = AsPI:WaitForChild("Include")
+local Lib = RbxPI:WaitForChild("Lib")
+local Include = RbxPI:WaitForChild("Include")
 
 local ErrorHandler = require(Include.ErrorHandler)
 
