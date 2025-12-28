@@ -1,23 +1,23 @@
 --[[
-Entry Point of the AsPI Loading System
+Entry Point of the RbxPI Loading System
 
-This module provides loading utilities for the AsPI.
+This module provides loading utilities for the RbxPI.
 It includes function for loading assets, modules, and other resources.
 
-Packages should be placed in `ReplicatedStorage.AsPI.Packages` for better organization and automatic loading.
+Packages should be placed in `ReplicatedStorage.RbxPI.Packages` for better organization and automatic loading.
 
-Copyright 2025 Astral Interactive Games
+Copyright 2025 RbxPI
 Licensed under the Apache License, Version 2.0
 You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
 
 For more information, visit:
-https://github.com/Astral-Interactive-Games/aspi
+https://github.com/rbxpi/rbxpi-core
 ]]
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local AsPI = ReplicatedStorage:WaitForChild("AsPI")
+local RbxPI = ReplicatedStorage:WaitForChild("RbxPI")
 
-local Include = AsPI:WaitForChild("Include")
+local Include = RbxPI:WaitForChild("Include")
 local Internal = Include:WaitForChild("Internal")
 
 local ErrorHandler = require(Include.ErrorHandler)
