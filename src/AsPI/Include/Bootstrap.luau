@@ -18,10 +18,13 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local AsPI = ReplicatedStorage:WaitForChild("AsPI")
 
 local Include = AsPI:WaitForChild("Include")
+local Internal = Include:WaitForChild("Internal")
 
 local ErrorHandler = require(Include.ErrorHandler)
-
-local InternalLoader = require(Include.InternalLoader)
+local InternalLoader = require(Internal.InternalLoader)
+local PackageScanner = require(Internal.PackageScanner)
+local Validator = require(Internal.Validator)
+local LoadPackage = require(Internal.LoadPackage)
 
 local Bootstrap = {}
 
@@ -31,7 +34,11 @@ local Bootstrap = {}
 -- booting  :   in the process of booting
 -- ready    :   the process is complete
 Bootstrap.__state = "init"
-Bootstrap.__packages = {}
+Bootstrap.__packages = {
+    _core = {},         -- Critical system packages (loaded FIRST)
+    _stdlib = {},       -- Standard utility packages (loaded SECOND)
+    _thirdparty = {}    -- External or optional packages (loaded LAST)
+}
 
 setmetatable(Bootstrap, {
     __index = function(_, key: string): string
@@ -39,14 +46,22 @@ setmetatable(Bootstrap, {
     end
 })
 
-function Bootstrap.init(): ()
+function Bootstrap.init(): boolean
     if Bootstrap.__state ~= "init" then
-        ErrorHandler.BootstrapException.AlreadyInitialized()
+        return ErrorHandler.BootstrapException.AlreadyInitialized()
     end
 
     Bootstrap.__state = "booting"
 
-    InternalLoader.init(Bootstrap)
+    Bootstrap.__packages._core = InternalLoader.init()
+    local Packages = PackageScanner.scan()
+    Bootstrap.__packages._stdlib, Bootstrap.__packages._thirdparty = Validator.check(Packages)
+
+    LoadPackage.load(Bootstrap.__packages)
+
+    Bootstrap.__state = "ready"
+
+    return true
 end
 
 return Bootstrap
