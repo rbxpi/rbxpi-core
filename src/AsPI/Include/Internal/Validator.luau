@@ -64,14 +64,14 @@ function Validator.check(packages: {[number]: any})
         end
 
         if metadata.Dependencies == nil or #metadata.Dependencies == 0 then
-            table.insert(Validator.__stdlib, instance)
+            Validator.__stdlib[metadata.Name] = mainPath
         elseif Dependencies.check(instance.Name, metadata.Dependencies) then
-            table.insert(Validator.__thirdparty, instance)
+            Validator.__thirdparty[metadata.Name] = mainPath
         else
             return false
         end
     end
-    
+
     return Validator.__stdlib, Validator.__thirdparty
 end
 
