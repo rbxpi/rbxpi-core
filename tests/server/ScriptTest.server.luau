@@ -1,7 +1,7 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local AsPI = ReplicatedStorage:WaitForChild("AsPI")
+local RbxPI = ReplicatedStorage:WaitForChild("RbxPI")
 
-local API = require(AsPI.API)
+local API = require(RbxPI.API)
 
 local test = API.test
 
