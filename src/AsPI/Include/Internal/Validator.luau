@@ -18,8 +18,22 @@ local Validator = {}
 Validator.__stdlib = {}
 Validator.__thirdparty = {}
 
-local function isValidMetadata(instance: Instance): {[any]: any} | false
-    local metadata = require(instance)
+-- Helper function to load metadata safely
+local function loadMetadataSafely(instance: Instance)
+    local result, metadata = pcall(function()
+        return require(instance)
+    end)
+
+    if not result then
+        ErrorHandler.ValidatorException.MetadataLoadingFailed(instance.Name)
+        return nil
+    end
+
+    return metadata
+end
+
+-- Helper function to validate metadata format
+local function isValidMetadataFormat(metadata, instance: Instance): boolean
     if type(metadata) ~= "table" then
         ErrorHandler.ValidatorException.MetadataNotFound(instance.Name)
         return false
@@ -43,32 +57,101 @@ local function isValidMetadata(instance: Instance): {[any]: any} | false
         end
     end
 
-    return metadata
+    return true
 end
 
+-- Helper function to validate package name
+local function isValidName(name: string, instance: Instance): boolean
+    if type(name) ~= "string" or name ~= instance.Name then
+        ErrorHandler.ValidatorException.InvalidName(instance.Name, name)
+        return false
+    end
+    return true
+end
+
+-- Helper function to validate license format
+local function isValidLicenseFormat(license, name): boolean
+    if type(license) ~= "table" or #license ~= 2 then
+        ErrorHandler.ValidatorException.LicenseFormatInvalid(name)
+        return false
+    end
+    return true
+end
+
+-- Helper function to validate file paths
+local function isValidPath(instance: Instance, path: string): any
+    return ResolvePath.resolve(instance.Name, instance, path)
+end
+
+-- Helper function to validate metadata content
+local function isValidMetadataContent(metadata, instance)
+    -- Validate package name
+    if not isValidName(metadata.Name, instance) then
+        return false
+    end
+
+    -- Validate license format
+    if not isValidLicenseFormat(metadata.License, metadata.Name) then
+        return false
+    end
+
+    -- Validate main file path
+    if type(metadata.Main) ~= "string" or metadata.Main == "" then
+        ErrorHandler.ValidatorException.InvalidPathError(instance.Name, tostring(metadata.Main))
+        return false
+    end
+
+    local mainPath = isValidPath(instance, metadata.Main)
+    if not mainPath then
+        return false
+    end
+
+    -- Validate dependencies format
+    if type(metadata.Dependencies) ~= "table" then
+        ErrorHandler.ValidatorException.InvalidDependency(instance.Name)
+        return false
+    end
+
+    return true, mainPath
+end
+
+-- Helper function to categorize packages
+local function packageCategorization(metadata, mainPath, instance): boolean
+    if #metadata.Dependencies == 0 then
+        Validator.__stdlib[metadata.Name] = {mainPath, metadata}
+        return true
+    elseif Dependencies.check(instance.Name, metadata.Dependencies) then
+        Validator.__thirdparty[metadata.Name] = {mainPath, metadata}
+        return true
+    else
+        return false
+    end
+end
+
+-- Main validation function
 function Validator.check(packages: {[number]: any})
-    for _name, instance in pairs(packages) do
-        local metadata = isValidMetadata(instance)
+    -- Iterate through each package and validate its metadata
+    for _, instance in pairs(packages) do
+        -- Load metadata safely
+        local metadata = loadMetadataSafely(instance)
         if not metadata then
             continue
         end
 
-        if #metadata.License ~= 2 then
-            ErrorHandler.ValidatorException.LicenseFormatInvalid(instance.Name)
-            return false
+        -- Validate metadata format
+        if not isValidMetadataFormat(metadata, instance) then 
+            continue
         end
 
-        local mainPath = ResolvePath.resolve(instance.Name, instance, metadata.Main)
-        if not mainPath then
-            return false
+        -- Validate metadata content
+        local metadataContentValid, mainPath = isValidMetadataContent(metadata, instance)
+        if not metadataContentValid then
+            continue
         end
 
-        if metadata.Dependencies == nil or #metadata.Dependencies == 0 then
-            Validator.__stdlib[metadata.Name] = mainPath
-        elseif Dependencies.check(instance.Name, metadata.Dependencies) then
-            Validator.__thirdparty[metadata.Name] = mainPath
-        else
-            return false
+        -- Categorize package based on dependencies
+        if not packageCategorization(metadata, mainPath, instance) then
+            continue
         end
     end
 
