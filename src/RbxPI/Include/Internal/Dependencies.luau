@@ -4,10 +4,10 @@ It returns true if all dependencies are met, and false otherwise.
 ]]
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local AsPI = ReplicatedStorage:WaitForChild("AsPI")
+local RbxPI = ReplicatedStorage:WaitForChild("RbxPI")
 
-local Lib = AsPI:WaitForChild("Lib")
-local Include = AsPI:WaitForChild("Include")
+local Lib = RbxPI:WaitForChild("Lib")
+local Include = RbxPI:WaitForChild("Include")
 
 local ErrorHandler = require(Include.ErrorHandler)
 

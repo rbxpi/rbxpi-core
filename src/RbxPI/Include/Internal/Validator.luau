@@ -1,13 +1,13 @@
 --[[
-AsPI Internal Validator
-This module provides validation utilities for packages in the Astral Package Index (AsPI).
+RbxPI Internal Validator
+This module provides validation utilities for packages in the Astral Package Index (RbxPI).
 It includes functions for validating package metadata, dependencies, and file paths.
 ]]
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local AsPI = ReplicatedStorage:WaitForChild("AsPI")
+local RbxPI = ReplicatedStorage:WaitForChild("RbxPI")
 
-local Include = AsPI:WaitForChild("Include")
+local Include = RbxPI:WaitForChild("Include")
 local Internal = Include:WaitForChild("Internal")
 
 local ErrorHandler = require(Include.ErrorHandler)

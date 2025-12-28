@@ -5,9 +5,9 @@ If the package or path is invalid, it returns nil.
 ]]--
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local AsPI = ReplicatedStorage:WaitForChild("AsPI")
+local RbxPI = ReplicatedStorage:WaitForChild("RbxPI")
 
-local Include = AsPI:WaitForChild("Include")
+local Include = RbxPI:WaitForChild("Include")
 local ErrorHandler = require(Include:WaitForChild("ErrorHandler"))
 
 local ResolvePath = {}
