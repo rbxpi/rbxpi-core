@@ -6,9 +6,9 @@ Packages are merged into the Registry to provide a unified interface for accessi
 ]]
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local AsPI = ReplicatedStorage:WaitForChild("AsPI")
+local RbxPI = ReplicatedStorage:WaitForChild("RbxPI")
 
-local Include = AsPI:WaitForChild("Include")
+local Include = RbxPI:WaitForChild("Include")
 local Internal = Include:WaitForChild("Internal")
 
 local Registry = require(Internal.Registry)
