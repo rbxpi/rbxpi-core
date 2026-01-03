@@ -72,6 +72,6 @@ $ cp /path/to/rbxpi-core/src /path/to/replicatedstorage/of/your/project/
 
 ## Copyright and License Information
 
-Copyright © 2025 RbxPI. All Rights Reserved.
+Copyright © 2026 RbxPI. All Rights Reserved.
 
 See the [LICENSE](LICENSE) for information on the history of this software, terms & conditions for usage, and a DISCLAIMER OF ALL WARRANTIES
