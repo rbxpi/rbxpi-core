@@ -1,8 +1,9 @@
-<h1 align="center"><a href="https://blockguard-sf.github.io/RoLib/">RbxPI | 1.0.0 - 2025.12.23 release</a></h1>
+<div align="center"><img width=25% src="assets/blockguard-sf-logo.png"></div>
+<h1 align="center"><a href="https://blockguard-sf.github.io/RoLib/">RbxPI | 1.0.1 - 2025.12.23 release</a></h1>
 <div align="center">Roblox Package Index</div>
 <br>
 <div align="center">
-    <a href= "https://create.roblox.com/store/asset/75774253790456/RoLib"><img src="https://img.shields.io/static/v1?label=roblox&message=model&color=blue&logo=roblox&logoColor=white" alt="The official RbxPI model" /></a>
+    <a href= "https://create.roblox.com/store/asset/72160239405840/RbxPI-Roblox-Package-Index"><img src="https://img.shields.io/static/v1?label=roblox&message=model&color=blue&logo=roblox&logoColor=white" alt="The official RbxPI model" /></a>
 	<a href="https://github.com/rbxpi/rbxpi-core/releases"><img src="https://img.shields.io/github/v/release/rbxpi/rbxpi-core?label=version" alt="Version" /></a>
 	<a href="https://github.com/rbxpi/rbxpi-core/issues"><img src="https://img.shields.io/github/issues/rbxpi/rbxpi-core.svg" alt="Issues" /></a>
 	<a href="https://github.com/rbxpi/rbxpi-core/pulls"><img src="https://img.shields.io/github/issues-pr/rbxpi/rbxpi-core.svg" alt="Pull Requests" /></a>
@@ -24,17 +25,15 @@ It is designed to be compatible in any type of project, including several varied
     - [Official Roblox Model (Recommended for beginner)](#official-roblox-model-recommended-for-beginner)
     - [GitHub Releases](#github-releases)
     - [Install with Rojo](#install-with-rojo)
-- [What's New](#whats-new)
-- [Documentation](#documentation)
 - [Copyright and License Information](#copyright-and-license-information)
 
 ## General Information
 
 - Source Code : https://github.com/rbxpi/rbxpi-core
 - Issue Tracker : https://github.com/rbxpi/rbxpi-core/issues
-- Documentation : 
-- Roblox Group : 
-- Discord Server : 
+- Roblox Group : https://www.roblox.com/communities/35439925/BlockGuard-Software-Foundation
+- Discord Server : https://discord.gg/WNKh6avffr
+- Roblox Model : https://create.roblox.com/store/asset/72160239405840/RbxPI-Roblox-Package-Index
 
 ## Contributing to RbxPI
 
@@ -45,7 +44,7 @@ Even if you've never contributed to GitHub before, we would appreciate any contr
 
 ### Official Roblox Model (Recommended for beginner)
 
-1. Add the [RbxPI Model]() to your Toolbox from the **Roblox Creator Hub**.
+1. Add the [RbxPI Model](https://create.roblox.com/store/asset/72160239405840/RbxPI-Roblox-Package-Index) to your Toolbox from the **Roblox Creator Hub**.
 2. Import **RbxPI** into your Experience from the Toolbox in the "**My Models**" category.
 
 ### GitHub Releases
@@ -70,14 +69,6 @@ $ git clone https://github.com/rbxpi/rbxpi-core
 ```bash
 $ cp /path/to/rbxpi-core/src /path/to/replicatedstorage/of/your/project/
 ```
-
-## What's New
-
-We have a full overview of the changes in the [What's New in RbxPI 1.0](https://blockguard-sf.github.io/RbxPI/whatsnew/1.0) document.
-
-## Documentation
-
-[Documentation for RbxPI 1.0](https://blockguard-sf.github.io/RoLib/whatsnew/2.0) is online, updated daily.
 
 ## Copyright and License Information
 
