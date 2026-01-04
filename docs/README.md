@@ -6,18 +6,17 @@ config:
     type: hero
     full: true
     forceDark: true
-    effect: lightning
     hero:
-      name: Theme Plume
-      tagline: VuePress Next Theme
-      text: A simple, feature-rich, document & blog
+      name: 
+      tagline: Roblox Package Index
+      text: Official documentation for RbxPI
       actions:
         -
           theme: brand
-          text: Blog
-          link: /blog/
+          text: Get started →
+          link: /
         -
           theme: alt
-          text: Github →
-          link: https://github.com/pengzhanbo/vuepress-theme-plume
+          text: Github 
+          link: https://github.com/rbxpi/rbxpi-core
 ---
