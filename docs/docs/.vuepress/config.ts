@@ -10,9 +10,9 @@ export default defineUserConfig({
     '/fr/': { title: 'RbxPI', lang: 'fr', description: 'Roblox Package Index' },
   },
 
-  head: [
-    ['link', { rel: 'icon', type: 'image/png', href: '/favicon-32x32.png' }],
-  ],
+  // head: [
+  // ['link', { rel: 'icon', type: 'image/png', href: '/favicon-32x32.png' }],
+  // ],
 
   bundler: viteBundler(),
   shouldPrefetch: false, 

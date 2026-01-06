@@ -14,7 +14,7 @@ export default defineThemeConfig({
   locales: {
     '/': {
       profile: {
-        avatar: '/blockguard-sf-logo.png',
+        // avatar: '/blockguard-sf-logo.png',
         name: 'RbxPI',
         description: 'Roblox Package Index',
       },
@@ -24,7 +24,7 @@ export default defineThemeConfig({
     },
     '/fr/': {
       profile: {
-        avatar: '/blockguard-sf-logo.png',
+        // avatar: '/blockguard-sf-logo.png',
         name: 'RbxPI',
         description: 'Roblox Package Index',
       },
