@@ -22,13 +22,13 @@ defaults:
     working-directory: docs
 
 jobs:
-  docs:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
-          # "Last updated time" and other git log-related information require fetching all commit records.
           fetch-depth: 0
 
       - name: Setup pnpm
@@ -39,8 +39,6 @@ jobs:
         with:
           node-version: 22
 
-
-      # Install dependencies
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
@@ -51,13 +49,14 @@ jobs:
           NODE_OPTIONS: --max_old_space_size=8192
         run: pnpm run docs:build
 
-
-      # @see https://github.com/crazy-max/ghaction-github-pages
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
       - name: Deploy to GitHub Pages
-        uses: crazy-max/ghaction-github-pages@v4
-        with:
-          target_branch: gh-pages
-          build_dir: docs/.vuepress/dist
-        env:
-          # @see https://docs.github.com/cn/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        id: deployment
+        uses: actions/deploy-pages@v4
