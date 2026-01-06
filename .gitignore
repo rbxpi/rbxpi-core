@@ -46,6 +46,6 @@ roblox.yml
 sourcemap.json
 
 
-/node_modules
-/docs/.vuepress/.cache
-/docs/.vuepress/.temp
+/docs/node_modules
+/docs/docs/.vuepress/.cache
+/docs/docs/.vuepress/.temp
