@@ -47,5 +47,5 @@ sourcemap.json
 
 
 /docs/node_modules
-/docs/docs/.vuepress/.cache
-/docs/docs/.vuepress/.temp
+/docs/.vuepress/.cache
+/docs/.vuepress/.temp
