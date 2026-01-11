@@ -3,7 +3,7 @@ import { defineUserConfig } from 'vuepress'
 import { plumeTheme } from 'vuepress-theme-plume'
 
 export default defineUserConfig({
-  base: "/rbxpi-core/",
+  base: "/",
   lang: 'en-US',
   locales: {
     '/': { title: 'RbxPI', lang: 'en-US', description: 'Roblox Package Index' },
