@@ -3,7 +3,6 @@
   "type": "module",
   "version": "1.0.0",
   "description": "Roblox Package Index",
-  "packageManager": "pnpm@10.27.0",
   "author": "KDUser <128939316+KDUser12@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
