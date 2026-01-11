@@ -1,4 +1,4 @@
-name: docs
+name: Deploy Docs
 
 on:
   # Trigger deployment on every push to the main branch
@@ -10,8 +10,13 @@ on:
   # Allow manual triggering
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
-  docs:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -40,12 +45,17 @@ jobs:
 
       # See https://github.com/crazy-max/ghaction-github-pages for more info
       - name: Deploy to GitHub Pages
-        uses: crazy-max/ghaction-github-pages@v4
+        uses: actions/upload-pages-artifact@v3
         with:
-          # Deploy to the gh-pages branch
-          target_branch: gh-pages
-          # Deployment directory is VuePress's default output directory
-          build_dir: docs/.vuepress/dist
-        env:
-          # @see https://docs.github.com/en/actions/security-guides/automatic-token-authentication#about-the-github_token-secret
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          path: docs/.vuepress/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+        
