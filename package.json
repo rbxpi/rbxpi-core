@@ -3,13 +3,14 @@
   "type": "module",
   "version": "1.0.0",
   "description": "Roblox Package Index",
+  "packageManager": "pnpm@10.27.0",
   "author": "KDUser <128939316+KDUser12@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
-    "docs:build": "vuepress build --clean-cache --clean-temp",
-    "docs:dev": "vuepress dev",
-    "docs:dev-clean": "vuepress --clean-cache --clean-temp",
-    "docs:preview": "http-server .vuepress/dist",
+    "docs:build": "vuepress build docs --clean-cache --clean-temp",
+    "docs:dev": "vuepress dev docs",
+    "docs:dev-clean": "vuepress dev docs --clean-cache --clean-temp",
+    "docs:preview": "http-server docs/.vuepress/dist",
     "vp-update": "pnpm dlx vp-update"
   },
   "devDependencies": {
