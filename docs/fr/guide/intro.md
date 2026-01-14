@@ -10,7 +10,7 @@ tags:
 
 ::: tip Vous lisez la documentation de RbxPI!
 
-Le support de BLuau a pris fin le 11 Mars 2025. En savoir plus sur [BLuau EOL](https://google.com).
+Le support de BLuau a pris fin le 11 Mars 2025. En savoir plus sur [BLuau EOL](../bluau-eol.md).
 
 :::
 

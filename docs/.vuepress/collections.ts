@@ -27,7 +27,8 @@ const frGuideDoc = defineCollection({
       icon: 'carbon:idea',
       items: [
         'intro',
-        'usage',
+        'quick-start',
+        'project-structure',
       ],
     },
   ],

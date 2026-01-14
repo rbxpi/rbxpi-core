@@ -40,6 +40,7 @@ config:
     type: image-text
     title: Roblox Package Index (RbxPI) est un dépôt de logiciels pour le langage de programmation Luau.
     description: Built-in rich features to meet general website needs.
+    image: /blockguard-sf-remove-bg-logo.png
   -
     type: custom
   
