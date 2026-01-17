@@ -1,29 +1,29 @@
 ---
 pageLayout: home
-externalLinkIcon: 
+externalLinkIcon: /blockguard-sf-logo.png
 title: Roblox Package Index
 config:
   -
-    type: hero
-    full: true
-    forceDark: true
+    type: doc-hero
     hero:
-      name: Un Index De Paquet Open-Source Pour Roblox
-      tagline: 
-      text: Solution simple à utiliser pour tout type d’environnement de développement
+      name: RbxPI
+      text: Un Index De Paquet Pour Roblox
+      tagline: Une solution simple à utiliser pour tout type d’environnement de développement
+      image: /blockguard-sf-logo.png
+      icon: /blockguard-sf-logo.png
       actions:
         -
           theme: brand
+          text: Pourquoi RbxPI?
+          link: /fr/guide/intro/#pourquoi-utiliser-rxbpi
+        -
+          theme: alt
           text: Commencer →
-          link: /fr/
+          link: /fr/guide/intro
         -
           theme: alt
           text: Installer 
-          link: /fr/
-        -
-          theme: alt
-          text: Github 
-          link: https://github.com/rbxpi/rbxpi-core
+          link: /fr/guide/quick-start
   -
     type: features
     features:
@@ -36,11 +36,6 @@ config:
       -
         title: Open-Source
         details: RbxPI est développé sous une licence open source, ce qui le rend librement utilisable et distribuable, même à des fins commerciales.
-  -
-    type: image-text
-    title: Roblox Package Index (RbxPI) est un dépôt de logiciels pour le langage de programmation Luau.
-    description: Built-in rich features to meet general website needs.
-    image: /blockguard-sf-remove-bg-logo.png
   -
     type: custom
   
