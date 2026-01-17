@@ -113,6 +113,39 @@ Si vous voulez installer RbxPI manuellement veuillez suivrez ces étapes:
 
 ::::
 
+## Structure du Répertoire
+
+Pour les projets créés via l'outil en [ligne de commande](#installation-en-ligne-de-commande), la structure de fichiers typique est la suivante :
+
+::: file-tree
+
+- .git/
+- src \# Répertoire du code source
+  - replicatedstorage
+    - **RbxPI** \# Code source de RbxPI
+      - Include/ \# Répertoire des fichiers interne de RbxPI
+      - Lib \# Répertoire des paquets
+        - __rhello__/
+        - site-packages/
+        - …
+      - API.luau \# API de RbxPI
+      - LICENSE.luau
+      - Version.txt
+    - …
+  - …
+- .gitignore
+- aftman.toml
+- default.project.json
+- README.md
+- selene.toml
+- sourcemap.json
+:::
+
+::: tip Les projets créés manuellement peuvent également être organisés en utilisant cette structure comme référence.
+:::
+
+Le dossier `Lib` est l'endroit où vous placerez les différents paquets que vous voulez importer, ils seront directement lue par RbxPI.
+
 ## En Savoir Plus sur RbxPI
 
 Maintenant que vous disposez d'un dépôt de paquet fonctionnel vous devriez consulter le guide suivant pour en savoir plus sur RbxPI.
