@@ -5,14 +5,15 @@ import { plumeTheme } from 'vuepress-theme-plume'
 export default defineUserConfig({
   base: "/rbxpi-core/",
   lang: 'en-US',
+
   locales: {
-    '/': { title: 'RbxPI', lang: 'en-US', description: 'Roblox Package Index' },
-    '/fr/': { title: 'RbxPI', lang: 'fr', description: 'Roblox Package Index' },
+    '/': { title: 'RbxPI', lang: 'en-US' },
+    '/fr/': { title: 'RbxPI', lang: 'fr' },
   },
 
-  // head: [
-  // ['link', { rel: 'icon', type: 'image/png', href: '/favicon-32x32.png' }],
-  // ],
+  head: [
+    ['link', { rel: 'icon', type: 'image/png', href: '/favicon-32x32.png' }],
+  ],
 
   bundler: viteBundler(),
   shouldPrefetch: false, 
