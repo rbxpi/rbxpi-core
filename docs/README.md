@@ -15,15 +15,15 @@ config:
         -
           theme: brand
           text: Why RbxPI?
-          link: /fr/guide/intro/#why-use-rxbpi
+          link: /guide/intro/#why-use-rxbpi
         -
           theme: alt
           text: Get Started →
-          link: /fr/guide/intro
+          link: /guide/intro
         -
           theme: alt
           text: Install
-          link: /fr/guide/quick-start
+          link: /guide/quick-start
   -
     type: features
     features:
