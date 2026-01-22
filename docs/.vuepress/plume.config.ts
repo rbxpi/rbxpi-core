@@ -9,10 +9,12 @@ export default defineThemeConfig({
     avatar: '/blockguard-sf-logo.png',
     name: 'RbxPI',
     description: 'Roblox Package Index',
+    circle: true,
     location: 'France',
-    organization: 'BlockGuard Software Foundation',
+    organization: 'BlockGuard SF',
   },
 
+  
   appearance: true,
 
   transition: { appearance: 'circle-clip' },

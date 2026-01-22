@@ -19,6 +19,13 @@ export default defineUserConfig({
   shouldPrefetch: false, 
 
   theme: plumeTheme({
+    markdown: {
+      codeTree: true, 
+      field: true, 
+    },
+
+    contributors: true,
+
     cache: 'filesystem',
     search: { provider: 'local' },
   }),
