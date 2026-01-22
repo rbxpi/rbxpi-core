@@ -8,13 +8,28 @@ export const themeGuide: ThemeCollectionItem = defineCollection({
     linkPrefix: '/guide/',
     sidebar: [
         {
-        text: 'Premier Pas',
-        collapsed: false,
-        icon: 'carbon:idea',
-        items: [
-            'intro',
-            'quick-start'
-        ],
+            text: 'Premier Pas',
+            collapsed: false,
+            items: [
+                'intro',
+                'quick-start'
+            ],
+        },
+        {
+            text: 'Essentiels',
+            collapsed: false,
+            items: [
+                'import-api',
+                'create-fork'
+            ],
+        },
+        {
+            text: 'Fonctionnalités',
+            collapsed: false,
+            prefix: 'features/',
+            items: [
+                'autocomplete'
+            ],
         },
     ],
 })
