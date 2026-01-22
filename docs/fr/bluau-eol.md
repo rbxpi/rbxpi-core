@@ -1,6 +1,5 @@
 ---
 title: BLuau A Atteint sa Fin de Vie
-icon: mdi:tooltip-text-outline
 createTime: 2026/01/12 23:20:24
 permalink: /fr/bluau-eol/
 tags:

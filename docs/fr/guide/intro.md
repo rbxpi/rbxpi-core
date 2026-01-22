@@ -1,6 +1,5 @@
 ---
 title: Introduction
-icon: mdi:tooltip-text-outline
 createTime: 2026/01/03 23:20:24
 permalink: /fr/guide/intro/
 tags:

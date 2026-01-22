@@ -1,6 +1,5 @@
 ---
 title: Démarrage Rapide
-icon: grommet-icons:install
 createTime: 2026/01/04 21:10:06
 permalink: /fr/guide/installation/
 tags:
