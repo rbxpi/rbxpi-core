@@ -29,5 +29,8 @@
   },
   "engines": {
     "node": "^20.19.0 || >=22.0.0"
+  },
+  "dependencies": {
+    "@vuepress/shiki-twoslash": "2.0.0-rc.76"
   }
 }
