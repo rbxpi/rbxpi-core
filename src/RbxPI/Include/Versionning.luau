@@ -1,12 +1,17 @@
 --[[
+Roblox Package Index Versioning
 
+This module provides utilities for handling and formatting package versions
+used by the RbxPI ecosystem.
+It includes helpers to validate version tuples, extract main versions,
+and generate standardized version strings (alpha, beta, rc, final).
 ]]
 
 local Versionning = {}
 
+-- Return a tuple of the package version. 
+-- If version argument is non-empty, check for correctness of the tuple provided.
 local function getCompleteVersion(version)
-    -- Return a tuple of the package version. 
-    -- If version argument is non-empty, check for correctness of the tuple provided.
     if version ~= nil then
         assert(#version == 5, "Version must contain 5 elements")
         assert(
@@ -20,8 +25,8 @@ local function getCompleteVersion(version)
     return version
 end
 
+-- Return main version (X.Y[.Z]) from VERSION.
 local function getMainVersion(version)
-    -- Return main version (X.Y[.Z]) from VERSION.
     version = getCompleteVersion(version)
     local parts = if version[3] == 0 then 2 else 3
     local result = {}
@@ -36,8 +41,7 @@ function Versionning.getVersion(version)
 
     -- Now build the two parts of the version number:
     -- main = X.Y[.Z]
-    -- sub = .devN - for pre-alpha releases
-    --   | {a|b|rc}N - for alpha, beta and release-candidate releases
+    -- sub = {a|b|rc}N - for alpha, beta and release-candidate releases
     local main = getMainVersion(version)
     local sub = ""
 

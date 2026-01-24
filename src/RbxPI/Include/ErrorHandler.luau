@@ -6,71 +6,196 @@ It includes function for logging errors, displaying error messages, and handling
 ]]
 
 local ErrorHandler = {}
+ErrorHandler.__runtimeErrors = {
+    API = {
+        PackageNotFound = 1,
+        BootstrapError = 2,
+    },
 
-ErrorHandler.APIException = {}
-function ErrorHandler.APIException.PackageNotFound(PackageName: string): any
-    return error("Error 001: The package '" .. PackageName .. "' does not exist in the API.")
+    Bootstrap = {
+        KeyNotExist = 101,
+        AlreadyInitialized = 102
+    }
+}
+
+ErrorHandler.__loadingErrors = {
+    Scanner = {
+        DuplicatePackage = 201,
+    },
+
+    Validator = {
+        MetadataNotFound = 301,
+        MissingMetadataField = 302,
+        LicenseFormatInvalid = 303,
+        InvalidPath = 304,
+        MetadataLoadFailed = 305,
+        InvalidName = 306,
+        InvalidDependency = 307,
+        VersionFormatInvalid = 308,
+    },
+
+    Dependencies = {
+        InvalidDependency = 401,
+    },
+
+    Loader = {
+        PackageLoadFailed = 501,
+    }
+}
+
+export type ErrorCode = number
+export type ErrorLevel = "WARN" | "ERROR"
+
+type ErrorContext = {
+    Code: ErrorCode,
+    Level: ErrorLevel,
+    Message: string
+}
+
+local function formatMessage(context: ErrorContext): string
+    return string.format("[RbxPI:%03d][%s] %s", context.Code, context.Level, context.Message)
 end
 
-function ErrorHandler.APIException.BootstrapError(): any
-    return error("Error 002: An error occurred while initializing the bootstrap.")
+local function throw(context: ErrorContext)
+    local message = formatMessage(context)
+
+    if context.Level == "WARN" then
+        warn(message)
+    else
+        error(message, 2) -- stack level propre
+    end
+end
+
+ErrorHandler.APIException = {}
+
+function ErrorHandler.APIException.PackageNotFound(packageName: string)
+    throw({
+        Code=ErrorHandler.__runtimeErrors.API.PackageNotFound,
+        Level="WARN",
+        Message=("Package '%s' does not exist in the API."):format(packageName)
+    })
+end
+
+function ErrorHandler.APIException.BootstrapError()
+    throw({
+        Code=ErrorHandler.__runtimeErrors.API.BootstrapError,
+        Level="ERROR",
+        Message="An error occurred during API bootstrap."
+    })
 end
 
 ErrorHandler.BootstrapException = {}
-function ErrorHandler.BootstrapException.KeyNotExist(key: string): ()
-    return warn ("Error 101: The key '" .. key .. "' does not exist in the Loader.")
+
+function ErrorHandler.BootstrapException.KeyNotExist(key: string)
+    throw({
+        Code=ErrorHandler.__runtimeErrors.Bootstrap.KeyNotExist,
+        Level="WARN",
+        Message=("Missing loader key '%s'."):format(key),
+    })
 end
 
-function ErrorHandler.BootstrapException.AlreadyInitialized(): ()
-    return error ("Error 102: The RbxPI bootstrap has already been initialized.")
+function ErrorHandler.BootstrapException.AlreadyInitialized()
+    throw({
+        Code=ErrorHandler.__runtimeErrors.Bootstrap.KeyNotExist,
+        Level="WARN",
+        Message="Bootstrap has already been initialized."
+    })
 end
 
 ErrorHandler.ScannerException = {}
-function ErrorHandler.ScannerException.DuplicatePackage(PackageName: string): ()
-    return warn ("Error 201: The package '" .. PackageName .. "' is already registered in the Package Scanner.")
+
+function ErrorHandler.ScannerException.DuplicatePackage(packageName: string)
+    throw({
+        Code=ErrorHandler.__loadingErrors.Scanner.DuplicatePackage,
+        Level="WARN",
+        Message=("Duplicate package '%s' detected."):format(packageName)
+    })
 end
 
 ErrorHandler.ValidatorException = {}
-function ErrorHandler.ValidatorException.MetadataNotFound(PackageName: string): ()
-    return warn ("Error 301: The package '" .. PackageName .. "' does not contain valid metadata.")
+
+function ErrorHandler.ValidatorException.MetadataNotFound(packageName: string)
+    throw({
+        Code=ErrorHandler.__loadingErrors.Validator.MetadataNotFound,
+        Level="WARN",
+        Message=("Package '%s' does not contain metadata."):format(packageName)
+    })
 end
 
-function ErrorHandler.ValidatorException.MissingMetadataField(PackageName: string, FieldName: string): ()
-    return warn ("Error 302: The package '" .. PackageName .. "' is missing the required metadata field: '" .. FieldName .. "'.")
+function ErrorHandler.ValidatorException.MissingMetadataField(packageName: string, field: string)
+    throw({
+        Code=ErrorHandler.__loadingErrors.Validator.MissingMetadataField,
+        Level="WARN",
+        Message=("Package '%s' is missing metadata field '%s'."):format(packageName, field)
+    })
 end
 
-function ErrorHandler.ValidatorException.LicenseFormatInvalid(PackageName: string): ()
-    return warn ("Error 303: The package '" .. PackageName .. "' has an invalid license format in its metadata.")
+function ErrorHandler.ValidatorException.LicenseFormatInvalid(packageName: string)
+    throw({
+        Code=ErrorHandler.__loadingErrors.Validator.LicenseFormatInvalid,
+        Level="WARN",
+        Message=("Package '%s' has an invalid license format."):format(packageName)
+    })
 end
 
-function ErrorHandler.ValidatorException.InvalidPathError(PackageName: string, FilePath: string): ()
-    return warn ("Error 304: The path '" .. FilePath .. "' is invalid in the package '" .. PackageName .. "'.")
+function ErrorHandler.ValidatorException.InvalidPath(packageName: string, filePath: string)
+    throw({
+        Code=ErrorHandler.__loadingErrors.Validator.InvalidPath,
+        Level="WARN",
+        Message=("Path '%s' is invalid in the package %s."):format(filePath, packageName)
+    })
 end
 
-function ErrorHandler.ValidatorException.MetadataLoadingFailed(PackageName: string): ()
-    return warn ("Error 305: Failed to load metadata for the package '" .. PackageName .. "'.")
+function ErrorHandler.ValidatorException.MetadataLoadingFailed(packageName: string)
+    throw({
+        Code=ErrorHandler.__loadingErrors.Validator.MetadataLoadFailed,
+        Level="WARN",
+        Message=("Failed to load metadata for the package %s."):format(packageName)
+    })
 end
 
-function ErrorHandler.ValidatorException.InvalidName(PackageName: string, MetadataName: string): ()
-    return warn ("Error 306: The package name '" .. PackageName .. "' does not match the metadata name '" .. MetadataName .. "'.")
+function ErrorHandler.ValidatorException.InvalidName(packageName: string, metadataName: string)
+    throw({
+        Code=ErrorHandler.__loadingErrors.Validator.InvalidName,
+        Level="WARN",
+        Message=("Package name '%s' does not match the metadata name %s."):format(packageName, metadataName)
+    })
 end
 
-function ErrorHandler.ValidatorException.InvalidDependency(PackageName: string): ()
-    return warn ("Error 307: The package '" .. PackageName .. "' has an invalid dependency.")
+function ErrorHandler.ValidatorException.InvalidDependency(packageName: string)
+    throw({
+        Code=ErrorHandler.__loadingErrors.Validator.InvalidDependency,
+        Level="WARN",
+        Message=("Path '%s' has an invalid dependency."):format(packageName)
+    })
 end
 
-function ErrorHandler.ValidatorException.VersionFormatInvalid(PackageName: string): ()
-    return warn ("Error 308: The package '" .. PackageName .. "' has an invalid version format in its metadata.")
+function ErrorHandler.ValidatorException.VersionFormatInvalid(packageName: string)
+	throw({
+        Code=ErrorHandler.__loadingErrors.Validator.VersionFormatInvalid,
+        Level="WARN",
+        Message=("Path '%s' has an invalid dependency."):format(packageName)
+    })
 end
 
-ErrorHandler.DependenciesExceptions = {}
-function ErrorHandler.DependenciesExceptions.InvalidDependency(PackageName: string, DependencyName: string): ()
-    return warn ("Error 401: The package '" .. PackageName .. "' has an invalid or missing dependency: '" .. DependencyName .. "'.")
+ErrorHandler.DependencyException = {}
+
+function ErrorHandler.DependencyException.InvalidDependency(packageName)
+    throw({
+        Code=ErrorHandler.__loadingErrors.Dependencies.InvalidDependency,
+        Level="WARN",
+        Message=("Invalid version format in '%s'."):format(packageName)
+    })
 end
 
-ErrorHandler.LoaderException = {}
-function ErrorHandler.LoaderException.PackageLoadFailed(PackageName: string): ()
-    return error("Error 501: Failed to load the package '" .. PackageName .. "'.")
+ErrorHandler.Loader = {}
+
+function ErrorHandler.Loader.PackageLoadFailed(packageName: string)
+    throw({
+        Code=ErrorHandler.__loadingErrors.Loader.PackageLoadFailed,
+        Level="WARN",
+        Message=("Failed to load package '%s'."):format(packageName)
+    })
 end
 
 return ErrorHandler
