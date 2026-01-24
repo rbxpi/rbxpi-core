@@ -1,0 +1,65 @@
+name: Deploy Docs
+
+on:
+  # Trigger deployment on every push to the main branch
+  push:
+    branches: [master]
+    paths:
+        - "docs/**/*"
+        
+  # Allow manual triggering
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+defaults:
+  run:
+    working-directory: docs
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Fetch all commit history for info like 'last updated'
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          # Use pnpm to install dependencies
+          run_install: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          # Choose the Node.js version to use
+          node-version: 22
+          # Cache pnpm dependencies
+          cache: pnpm
+
+      # Run the build script
+      - name: Build VuePress site
+        run: pnpm docs:build
+
+      # See https://github.com/crazy-max/ghaction-github-pages for more info
+      - name: Deploy to GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/.vuepress/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+        
