@@ -11,6 +11,7 @@ local Include = RbxPI:WaitForChild("Include")
 local Internal = Include:WaitForChild("Internal")
 
 local ErrorHandler = require(Include.ErrorHandler)
+local Versionning = require(Include.Versionning)
 local ResolvePath = require(Internal.ResolvePath)
 local Dependencies = require(Internal.Dependencies)
 
@@ -83,6 +84,16 @@ local function isValidPath(instance: Instance, path: string): any
     return ResolvePath.resolve(instance.Name, instance, path)
 end
 
+-- Helper function to validate version format
+local function isValidVersion(version, name): string | boolean
+    if type(version) ~= "table" then
+        ErrorHandler.ValidatorException.VersionFormatInvalid(name)
+        return true
+    end
+    version = Versionning.getVersion(version)
+    return version
+end
+
 -- Helper function to validate metadata content
 local function isValidMetadataContent(metadata, instance)
     -- Validate package name
@@ -105,6 +116,12 @@ local function isValidMetadataContent(metadata, instance)
     if not mainPath then
         return false
     end
+
+    local version = isValidVersion(metadata.Version, metadata.Name)
+    if not version then
+        return false
+    end
+    metadata.Version = version
 
     -- Validate dependencies format
     if type(metadata.Dependencies) ~= "table" then

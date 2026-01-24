@@ -59,6 +59,10 @@ function ErrorHandler.ValidatorException.InvalidDependency(PackageName: string):
     return warn ("Error 307: The package '" .. PackageName .. "' has an invalid dependency.")
 end
 
+function ErrorHandler.ValidatorException.VersionFormatInvalid(PackageName: string): ()
+    return warn ("Error 308: The package '" .. PackageName .. "' has an invalid version format in its metadata.")
+end
+
 ErrorHandler.DependenciesExceptions = {}
 function ErrorHandler.DependenciesExceptions.InvalidDependency(PackageName: string, DependencyName: string): ()
     return warn ("Error 401: The package '" .. PackageName .. "' has an invalid or missing dependency: '" .. DependencyName .. "'.")
