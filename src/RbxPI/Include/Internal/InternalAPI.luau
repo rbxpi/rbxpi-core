@@ -13,7 +13,7 @@ local InternalAPI = {}
 InternalAPI.version = RbxPI.Version.Value
 InternalAPI.author = "RbxPI"
 InternalAPI.license = "Apache License, Version 2.0"
-InternalAPI.copyright = "Copyright 2026 RbxPI"
+InternalAPI.copyright = "Copyright 2026 BlockGuard Software Foundation"
 InternalAPI.url = "https://github.com/rbxpi/rbxpi-core"
 InternalAPI.licenseinfo = [[Apache License
                            Version 2.0, January 2004
@@ -203,7 +203,7 @@ InternalAPI.licenseinfo = [[Apache License
       same "printed page" as the copyright notice for easier
       identification within third-party archives.
 
-   Copyright 2026 RbxPI
+   Copyright 2026 BlockGuard Software Foundation
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

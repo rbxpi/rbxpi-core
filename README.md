@@ -1,10 +1,10 @@
 <div align="center"><img width=25% src="assets/blockguard-sf-logo.png"></div>
-<h1 align="center"><a href="https://blockguard-sf.github.io/RoLib/">RbxPI | 1.0.1 - 2025.12.23 release</a></h1>
+<h1 align="center"><a href="https://blockguard-sf.github.io/RoLib/">RbxPI | 1.0.1 - 2026.01.24 release</a></h1>
 <div align="center">Roblox Package Index</div>
 <br>
 <div align="center">
-    <a href= "https://create.roblox.com/store/asset/72160239405840/RbxPI-Roblox-Package-Index"><img src="https://img.shields.io/static/v1?label=roblox&message=model&color=blue&logo=roblox&logoColor=white" alt="The official RbxPI model" /></a>
-	<a href="https://github.com/rbxpi/rbxpi-core/releases"><img src="https://img.shields.io/github/v/release/rbxpi/rbxpi-core?label=version" alt="Version" /></a>
+    <a href= "https://create.roblox.com/store/asset/72160239405840/RbxPI-Roblox-Package-Index"><img src="https://img.shields.io/static/v1?label=Roblox&message=model&color=blue&logo=roblox&logoColor=white" alt="The official RbxPI model" /></a>
+	<a href="https://github.com/rbxpi/rbxpi-core/releases"><img src="https://img.shields.io/github/v/release/rbxpi/rbxpi-core?label=Version" alt="Version" /></a>
 	<a href="https://github.com/rbxpi/rbxpi-core/issues"><img src="https://img.shields.io/github/issues/rbxpi/rbxpi-core.svg" alt="Issues" /></a>
 	<a href="https://github.com/rbxpi/rbxpi-core/pulls"><img src="https://img.shields.io/github/issues-pr/rbxpi/rbxpi-core.svg" alt="Pull Requests" /></a>
 	<a href="https://www.codefactor.io/repository/github/rbxpi/rbxpi-core"><img src="https://sloc.xyz/github/rbxpi/rbxpi-core" alt="lines" /></a>
@@ -25,15 +25,17 @@ It is designed to be compatible in any type of project, including several varied
     - [Official Roblox Model (Recommended for beginner)](#official-roblox-model-recommended-for-beginner)
     - [GitHub Releases](#github-releases)
     - [Install with Rojo](#install-with-rojo)
+- [What's New](#whats-new)
+- [Documentation](#documentation)
 - [Copyright and License Information](#copyright-and-license-information)
 
 ## General Information
 
 - Source Code : https://github.com/rbxpi/rbxpi-core
 - Issue Tracker : https://github.com/rbxpi/rbxpi-core/issues
+- Documentation : https://rbxpi.github.io/rbxpi-core/
 - Roblox Group : https://www.roblox.com/communities/35439925/BlockGuard-Software-Foundation
 - Discord Server : https://discord.gg/WNKh6avffr
-- Roblox Model : https://create.roblox.com/store/asset/72160239405840/RbxPI-Roblox-Package-Index
 
 ## Contributing to RbxPI
 
@@ -70,8 +72,14 @@ $ git clone https://github.com/rbxpi/rbxpi-core
 $ cp /path/to/rbxpi-core/src /path/to/replicatedstorage/of/your/project/
 ```
 
+
+## Documentation
+
+Documentation for [RbxPI](https://rbxpi.github.io/rbxpi-core/) is online, updated daily.
+
+
 ## Copyright and License Information
 
-Copyright © 2026 RbxPI. All Rights Reserved.
+Copyright © 2026 BlockGuard Software Foundation. All Rights Reserved.
 
 See the [LICENSE](LICENSE) for information on the history of this software, terms & conditions for usage, and a DISCLAIMER OF ALL WARRANTIES

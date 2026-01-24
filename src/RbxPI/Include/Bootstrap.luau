@@ -6,7 +6,7 @@ It includes function for loading assets, modules, and other resources.
 
 Packages should be placed in `ReplicatedStorage.RbxPI.Packages` for better organization and automatic loading.
 
-Copyright 2026 RbxPI
+Copyright 2026 BlockGuard Software Foundation
 Licensed under the Apache License, Version 2.0
 You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
 
