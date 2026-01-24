@@ -1,7 +1,7 @@
 ---
 title: Importer un Paquet
 createTime: 2026/01/18 16:38:15
-permalink: /fr/guide/essentials/import-api/
+permalink: /fr/guide/essentials/import-package/
 ---
 
 L'importation d'un paquet dans votre code s'effectue en deux étapes principales:

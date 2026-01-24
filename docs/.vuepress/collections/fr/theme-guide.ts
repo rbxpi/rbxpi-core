@@ -18,9 +18,10 @@ export const themeGuide: ThemeCollectionItem = defineCollection({
         {
             text: 'Essentiels',
             collapsed: false,
+            prefix: 'essentials/',
             items: [
-                'import-api',
-                'create-fork'
+                'import-package',
+                'package-structure',
             ],
         },
         {

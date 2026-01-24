@@ -31,7 +31,7 @@ Si vous souhaitez créer un [fork de RbxPI](https://github.com/rbxpi/rbxpi-core/
 
 ::: warning
 
-Cette solution n'est pas compatible pour les systèmes d'exploitation qui ne sont pas prévu par Roblox. Si vous voulez savoir si vous machine est compatible veuillez vous référer à la [documentation de Roblox](https://create.roblox.com/docs/fr-fr/tutorials/curriculums/studio/install-studio).
+Cette solution n'est pas compatible pour les systèmes d'exploitation qui ne sont pas prévu par Roblox. Si vous voulez savoir si votre machine est compatible veuillez vous référer à la [documentation de Roblox](https://create.roblox.com/docs/fr-fr/tutorials/curriculums/studio/install-studio).
 
 :::
  
@@ -147,4 +147,4 @@ Le dossier `Lib` est l'endroit où vous placerez les différents paquets que vou
 
 ## En Savoir Plus sur RbxPI
 
-Maintenant que vous disposez d'un dépôt de paquet fonctionnel vous devriez consulter le guide suivant pour en savoir plus sur RbxPI.
+Maintenant que vous disposez d'un dépôt de paquet fonctionnel vous devriez consulter le guide suivant pour en savoir plus sur RbxPI et savoir comment [importer un paquet](./essentials/import-package.md).

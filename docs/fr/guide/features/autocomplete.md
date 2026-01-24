@@ -18,7 +18,7 @@ Seuls les paquets présents dans la [bibliothèque standard](/fr/api/intro#bibli
 
 ## Utilisation
 
-Pour bénéficier de l’auto-complétion, il suffit d’[importer l’API](/fr/guide/essentials/import-api/#importation-de-l-api) de RbxPI dans votre code.
+Pour bénéficier de l’auto-complétion, il suffit d’[importer l’API](/fr/guide/essentials/import-package/#importation-de-l-api) de RbxPI dans votre code.
 Cette fonctionnalité est disponible quel que soit le mode d’installation utilisé.
 
 ::: note Cette fonctionnalité fonctionne aussi bien côté serveur que côté client.
