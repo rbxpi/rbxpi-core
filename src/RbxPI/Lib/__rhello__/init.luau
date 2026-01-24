@@ -1,6 +1,6 @@
 --[[
 __rhello__ package for Luau. Based on Lua syntax version 5.1 and its comments.
-Copyright (C) 2025 RbxPI. All Rights Reserved.
+Copyright (C) 2026 RbxPI. All Rights Reserved.
 Licensed under the MIT License. See LICENSE file in the project root for license information.
 
 This package provides a simple "Hello, World!" functionality as an example package for the RbxPI library.
