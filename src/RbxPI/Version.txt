@@ -1,1 +1,1 @@
-1.0.1 - 2026.xx.xx release
+1.1.0 - 2026.xx.xx release
