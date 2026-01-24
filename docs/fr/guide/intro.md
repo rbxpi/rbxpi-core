@@ -13,7 +13,7 @@ Le support de BLuau a pris fin le 11 Mars 2025. En savoir plus sur [BLuau EOL](.
 
 :::
 
-==Roblox Package Index== est un dépôt de paquets pour l'environnement de jeu et de développement Roblox en Lua. Vous pouvez **créer votre propre paquet** ou même votre **propre framework** en **respectant une structure et un format spécifiques** afin de garantir une compatibilité pour toutes les expériences utilisant RbxPI.
+==Roblox Package Index== est un dépôt de paquets pour l'environnement de jeu et de développement Roblox en Lua. Vous pouvez **créer votre propre paquet** ou même votre **propre framework** en **respectant une [structure et un format spécifiques](./essentials/package-structure.md)** afin de garantir une compatibilité pour toutes les expériences utilisant RbxPI.
 
 L'objectif de **RbxPI** est de pouvoir fournir aux développeurs une grande variété d'outils afin d'**éviter la redondance et de réinventer la roue**.
 
@@ -52,7 +52,7 @@ RbxPI fournit une **API claire, bien documentée et facile à utiliser**, permet
 
 ::: warning
 
-Pour la sécurité de nos utilisateurs seul les paquets développé et maintenu par BlockGuard SF se trouvent dans la bibliothèque standard de RbxPI.
+Pour la sécurité de nos utilisateurs seul les paquets développé et maintenu par BlockGuard SF se trouvent dans la [bibliothèque standard](../api/intro.md#bibliothèque-standard) de RbxPI.
 
 :::
 
