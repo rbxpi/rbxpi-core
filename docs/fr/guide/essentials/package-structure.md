@@ -19,7 +19,7 @@ Chaque paquet :
 ::: important
 
 RbxPI valide la structure des paquets. 
-Une structure incorrecte rend le paquet **invalide**
+Une structure incorrecte rend le paquet **invalide**.
 
 :::
 
@@ -84,4 +84,4 @@ Les utilisateurs interagisent **uniquement** avec ce que vous exposez depuis `in
 
 :::
 
-Vous pouvez retrouver un exempl [ici](/fr/examples/hello-world.md)
+Vous pouvez retrouver un exemple [ici](/fr/examples/hello-world.md)

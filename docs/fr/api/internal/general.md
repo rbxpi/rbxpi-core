@@ -65,7 +65,7 @@ local LicenseRbxPI = RbxPI.license
 
 :::: field-group
 ::: field name="Licence" type="string"
-Nom de la license de RbxPI.
+Nom de la licence de RbxPI.
 :::
 
 ::::
@@ -123,7 +123,7 @@ local LicenseInfoRbxPI = RbxPI.licenseinfo
 - **Retours:**
 
 :::: field-group
-::: field name="License complète" type="string"
+::: field name="Licence complète" type="string"
 Licence complète de RbxPI.
 :::
 

@@ -1,7 +1,6 @@
 ---
 title: Introduction
-icon: mdi:tooltip-text-outline
-createTime: 2026/01/17 20:00:52
+createTime: 2026/01/03 23:20:24
 permalink: /guide/intro/
 tags:
   - Guide
@@ -14,17 +13,17 @@ Support for BLuau ended on March 11, 2025. Learn more about [BLuau EOL](../bluau
 
 :::
 
-==Roblox Package Index== est un dépôt de paquets pour l'environnement de jeu et de développement Roblox en Lua. Vous pouvez **créer votre propre paquet** ou même votre **propre framework** en **respectant une structure et un format spécifiques** afin de garantir une compatibilité pour toutes les expériences utilisant RbxPI.
+**Roblox Package Index** is a package repository for the Roblox game and development environment in Lua. You can **create your own package** or even your **own framework** by **following a [specific structure and format](./essentials/package-structure.md)** to ensure compatibility across all experiences using RbxPI.
 
-L'objectif de **RbxPI** est de pouvoir fournir aux développeurs une grande variété d'outils afin d'**éviter la redondance et de réinventer la roue**.
+The goal of **RbxPI** is to provide developers with a wide variety of tools in order to **avoid redundancy and reinventing the wheel**.
 
-::: details Nouveau sur RbxPI?
+::: details New to RbxPI?
 
-RbxPI est apparu le 5 février 2025 sous le nom de [BLuau](https://github.com/blockguard-sf/BLuau) qui aujourd'hui n'est plus maintenu. Il est développé par [BlockGuard Software Foundation](https://github.com/blockguard-sf) (BlockGuard SF) et s'inspire très fortement de [PyPI](https://pypi.org/), un dépôt de paquets mais pour Python. Plusieurs versions non publiées ont été faites de RbxPI sous divers noms (Bluau, RoLib), mais la version la plus récente et maintenue reste RbxPI.
+RbxPI first appeared on February 5, 2025 under the name [BLuau](https://github.com/blockguard-sf/BLuau), which is no longer maintained today. It is developed by [BlockGuard Software Foundation](https://github.com/blockguard-sf) (BlockGuard SF) and is heavily inspired by [PyPI](https://pypi.org/), a package repository for Python. Several unpublished versions of RbxPI were created under various names (Bluau, RoLib), but the most recent and maintained version remains RbxPI.
 
 :::
 
-Voici un exemple minimal:
+Here is a minimal example:
 
 ```luau
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -35,38 +34,38 @@ local API = require(RbxPI:WaitForChild("API"))
 print(API.version)
 ```
 
-Résultat:
+Result:
 
 ```console
 1.0.0 - 1.0.0 - 2025.12.23 release
 ```
 
-::: info Prérequis
+::: info Prerequisites
 
-Le reste de la documentation suppose que vous connaissez le [Luau](https://luau.org). Cependant, même sans grande connaissances en programmation, vous pouvez utilisez RbxPI.
+The rest of the documentation assumes that you are familiar with [Luau](https://luau.org). However, even without strong programming knowledge, you can use RbxPI.
 
 :::
 
 ## Pourquoi utiliser RxbPI?
 
-RbxPI fournit une **API claire, bien documentée et facile à utiliser**, permettant à n'importe qui de gagner du temps avec des **fonctions préconstruites et optimisées** pour ainsi éviter la redondance du code en utilisant des **abstractions efficaces**.
+RbxPI provides a **clear, well-documented, and easy-to-use API**, allowing anyone to save time with **prebuilt and optimized functions**, thereby avoiding code redundancy through the use of **efficient abstractions**.
 
 ::: warning
 
-Pour la sécurité de nos utilisateurs seul les paquets développé et maintenu par BlockGuard SF se trouvent dans la bibliothèque standard de RbxPI.
+For the safety of our users, only packages developed and maintained by BlockGuard SF are included in the RbxPI [standard library](../api/intro.md#standard-library).
 
 :::
 
 ---
 
-RbxPI est conçu pour s'**intégrer parfaitement à l'écosystème Roblox**, en évitant les conflits avec les fonctionnalités existantes. Voici quelques raison clés de l'utiliser :
+RbxPI is designed to **integrate seamlessly with the Roblox ecosystem**, avoiding conflicts with existing features. Here are some key reasons to use it:
 
-- S'intègre facilement dans les projets déjà existants sans nécessiter de grosses modification.
-- À une grande extensibilité grâce à sa conception modulaire.
-- Compatible avec les bonnes pratiques de développement Roblox. 
+- Easily integrates into existing projects without requiring major modifications.
+- Highly extensible thanks to its modular design.
+- Compatible with Roblox development best practices. 
 
 ---
 
-Roblox impose des [limites de ressources](https://create.roblox.com/docs/fr-fr/performance-optimization/improve) (CPU, mémoire) aux scripts exécutés dans ses environnements. RbxPI est conçu pour pouvoir réduire sa surcharge et optimiser l'exécution de ses scripts. Il minimise son impact des opérations lourdes sur le framerate et sur la stabilité du jeu et offre une meilleur gestion des ressources grâce à ses optimisations internes.
+Roblox imposes [resource limits](https://create.roblox.com/docs/fr-fr/performance-optimization/improve) (CPU, memory) on scripts running in its environments. RbxPI is designed to reduce overhead and optimize script execution. It minimizes the impact of heavy operations on the framerate and game stability, and provides better resource management thanks to its internal optimizations.
 
-Cela permet aux développeurs de créer des expériences plus fluides pour les joueurs sans compromettre la complexité du gameplay.
+This allows developers to create smoother experiences for players without compromising gameplay complexity.

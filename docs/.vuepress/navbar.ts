@@ -13,7 +13,7 @@ export const enNavbar = defineNavbarConfig([
   },
   {
     text: "API",
-    link: "/api/README"
+    link: "/api/intro"
   },
   {
     text: "About",

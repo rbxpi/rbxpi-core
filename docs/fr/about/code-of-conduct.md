@@ -1,5 +1,5 @@
 ---
-title: Code de conduite — RbxPI
+title: Code de Conduite — RbxPI
 createTime: 2026/01/21 19:21:52
 permalink: /fr/about/code-of-conduct
 ---

@@ -1,12 +1,12 @@
 ---
-title: Métadonnée
+title: Metadata
 createTime: 2026/01/19 19:03:04
-permalink: /fr/examples/metadata
+permalink: /examples/metadata
 ---
 
-::: code-tree title="Structure du Paquet" height="600px" entry="votrepaquet/init.luau"
+::: code-tree title="Package Structure" height="600px" entry="yourpackage/init.luau"
 
-```luau title="votrepaquet/init.luau"
+```luau title="yourpackage/init.luau"
 --[[
 __rhello__ package for Luau. Based on Lua syntax version 5.1 and its comments.
 Copyright (C) 2025 RbxPI. All Rights Reserved.

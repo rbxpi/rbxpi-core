@@ -17,7 +17,7 @@ Exemple : `000`, `100`, `200`, …
 
 :::
 
-## Erreurs d'exécution
+## Erreurs d'Exécution
 
 Les erreurs d’exécution sont généralement liées à l’API et au `Bootstrap` de RbxPI.
 Leurs codes d’erreur se situent dans la plage `001` et `199`.
@@ -34,7 +34,7 @@ Le tableau suivant établit une correspondance entre les codes et leurs chaînes
 | 101 | Le paquet demandé est introuvable dans le chargeur. |
 | 102 | Le bootstrap a déjà été initialisé. |
 
-## Erreurs de chargement
+## Erreurs de Chargement
 
 Les erreurs de chargement sont étroitement liées au processus de chargement des paquets.
 Leurs codes d'erreur se situent dans la plage `201` et `599`.
