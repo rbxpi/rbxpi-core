@@ -2,9 +2,6 @@
 title: BLuau A Atteint sa Fin de Vie
 createTime: 2026/01/12 23:20:24
 permalink: /fr/bluau-eol/
-tags:
-  - Guide
-  - Quick Start
 ---
 
 BLuau est sorti le 22 février 2025, il y a presque 1 an. Ce fut le début d'un projet de grande envergure au sein de BlockGuard SF. Bien que sa non-popularité fasse défaut, cela nous a permis de mieux savoir ce qu'on voulait et de comment l'implémenter.
