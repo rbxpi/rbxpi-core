@@ -44,3 +44,8 @@ roblox.yml
 
 # Mapping of the complete project structure
 sourcemap.json
+
+# VuePress build/temp files
+/docs/.vuepress/.cache
+/docs/.vuepress/.temp
+node_modules
