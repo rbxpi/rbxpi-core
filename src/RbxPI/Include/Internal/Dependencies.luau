@@ -26,7 +26,7 @@ function Dependencies.check(packageName: string, packageDependencies)
 
     if #notFound > 0 then
         for _, dependency in ipairs(packageDependencies) do
-            ErrorHandler.DependenciesExceptions.InvalidDependency(packageName, dependency)
+            ErrorHandler.DependencyException.InvalidDependency(packageName, dependency)
         end
         return false
     end

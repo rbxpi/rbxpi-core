@@ -188,9 +188,9 @@ function ErrorHandler.DependencyException.InvalidDependency(packageName)
     })
 end
 
-ErrorHandler.Loader = {}
+ErrorHandler.LoaderException = {}
 
-function ErrorHandler.Loader.PackageLoadFailed(packageName: string)
+function ErrorHandler.LoaderException.PackageLoadFailed(packageName: string)
     throw({
         Code=ErrorHandler.__loadingErrors.Loader.PackageLoadFailed,
         Level="WARN",
