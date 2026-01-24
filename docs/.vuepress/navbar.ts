@@ -19,10 +19,7 @@ export const enNavbar = defineNavbarConfig([
     text: "About",
     prefix: "about/",
     items: [
-      { text: "FAQ", link: "" },
-      { text: "Team", link: "" },
       { text: "Releases", link: "releases/" },
-      { text: "Community Guide", link: "" },
       { text: "Code of Conduct", link: "code-of-conduct" }
     ]
   },
@@ -67,10 +64,7 @@ export const frNavbar = defineNavbarConfig([
     text: "À propos",
     prefix: "fr/about/",
     items: [
-      { text: "FAQ", link: "" },
-      { text: "Team", link: "" },
       { text: "Releases", link: "releases/" },
-      { text: "Guide Communautaire", link: "" },
       { text: "Code de conduite", link: "code-of-conduct" }
     ]
   },
