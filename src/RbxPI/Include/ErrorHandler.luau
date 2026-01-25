@@ -32,6 +32,7 @@ ErrorHandler.__loadingErrors = {
         InvalidName = 306,
         InvalidDependency = 307,
         VersionFormatInvalid = 308,
+        InvalidMetadataFormat = 309
     },
 
     Dependencies = {
@@ -127,6 +128,14 @@ function ErrorHandler.ValidatorException.MissingMetadataField(packageName: strin
         Code=ErrorHandler.__loadingErrors.Validator.MissingMetadataField,
         Level="WARN",
         Message=("Package '%s' is missing metadata field '%s'."):format(packageName, field)
+    })
+end
+
+function ErrorHandler.ValidatorException.InvalidMetadataFormat(packageName: string, field: string)
+    throw({
+        Code=ErrorHandler.__loadingErrors.Validator.InvalidMetadataFormat,
+        Level="WARN",
+        Message=("Package '%s' has an invalid metadata field : '%s'."):format(packageName, field)
     })
 end
 
