@@ -13,7 +13,7 @@ return {
     Version = {1, 0, 0, 'final', 0},
     Description = "A simple example of a package.",
     Main = "Out/Index.luau",
-    Author = "RbxPI (https://github.com/rbxpi)",
+    Author = "BlockGuard Software Foundation (https://github.com/blockguard-sf)",
     License = {LICENSE[1], LICENSE[2]},
     Repository = "https://github.com/rbxpi/rbxpi-core/tree/master/examples/__rhello__",
     Dependencies = {}, -- or {"Package1", "Package2"}
