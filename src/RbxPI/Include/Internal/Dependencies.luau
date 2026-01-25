@@ -13,7 +13,7 @@ local ErrorHandler = require(Include.ErrorHandler)
 
 local Dependencies = {}
 
-function Dependencies.check(packageName: string, packageDependencies)
+function Dependencies.check(packageName: string, packageDependencies): boolean
     local notFound = packageDependencies
     for _, dependency in pairs(packageDependencies) do
         for index, package in pairs(Lib:GetChildren()) do
