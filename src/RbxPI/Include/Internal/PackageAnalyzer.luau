@@ -1,5 +1,5 @@
 --[[
-RbxPI Internal Validator
+RbxPI Internal PackageAnalyzer
 This module provides validation utilities for packages in the Astral Package Index (RbxPI).
 It includes functions for validating package metadata, dependencies, and file paths.
 ]]
@@ -14,11 +14,11 @@ local ErrorHandler = require(Include.ErrorHandler)
 local Versionning = require(Include.Versionning)
 
 local ResolvePath = require(Internal.ResolvePath)
-local Dependencies = require(Internal.Dependencies)
+local DependencyValidator = require(Internal.DependencyValidator)
 
-local Validator = {}
-Validator.__leaf = {}
-Validator.__dependant = {}
+local PackageAnalyzer = {}
+PackageAnalyzer.__rootPackages = {}
+PackageAnalyzer.__dependentPackages = {}
 
 -- Helper function to load metadata safely
 local function loadMetadataSafely(instance: ModuleScript): nil
@@ -30,14 +30,14 @@ local function loadMetadataSafely(instance: ModuleScript): nil
         if result then return metadata end
     end
 
-    ErrorHandler.ValidatorException.MetadataLoadingFailed(instance.Name)
+    ErrorHandler.AnalyzerException.MetadataLoadingFailed(instance.Name)
     return nil
 end
 
 -- Helper function to validate metadata format
 local function isValidMetadataFormat(metadata, instance: ModuleScript): boolean
     if type(metadata) ~= "table" then
-        ErrorHandler.ValidatorException.MetadataNotFound(instance.Name)
+        ErrorHandler.AnalyzerException.MetadataNotFound(instance.Name)
         return false
     end
 
@@ -54,7 +54,7 @@ local function isValidMetadataFormat(metadata, instance: ModuleScript): boolean
 
     for _, field in ipairs(requiredFields) do
         if metadata[field] == nil or metadata[field] == "" then
-            ErrorHandler.ValidatorException.MissingMetadataField(instance.Name, field)
+            ErrorHandler.AnalyzerException.MissingMetadataField(instance.Name, field)
             return false
         end
     end
@@ -75,7 +75,7 @@ local function isValidMetadataSchema(metadata, instance): boolean
         local expectedType = isTableField and "table" or "string"
 
         if typeof(content) ~= expectedType then
-            ErrorHandler.ValidatorException.InvalidMetadataFormat(instance.Name, field)
+            ErrorHandler.AnalyzerException.InvalidMetadataFormat(instance.Name, field)
             return false
         end
     end
@@ -85,12 +85,12 @@ end
 -- Helper function to validate metadata content
 local function isValidMetadataContent(metadata, instance)
     if metadata.Name ~= instance.Name then 
-        ErrorHandler.ValidatorException.InvalidName(instance.Name, metadata.Name)
+        ErrorHandler.AnalyzerException.InvalidName(instance.Name, metadata.Name)
         return false
     end
     
     if #metadata.License ~= 2 then
-        ErrorHandler.ValidatorException.LicenseFormatInvalid(metadata.Name) 
+        ErrorHandler.AnalyzerException.LicenseFormatInvalid(metadata.Name) 
         return false
     end
 
@@ -103,13 +103,13 @@ local function ClassifyPackageDependencies(metadata, mainPath)
     local content = {mainPath, metadata}
 
     if #dependencies == 0 then
-        Validator.__leaf[metadata.Name] = content
+        PackageAnalyzer.__rootPackages[metadata.Name] = content
         return true
     end
 
-    local isValidDependencies = Dependencies.check(metadata.Name, dependencies)
+    local isValidDependencies = DependencyValidator.validate(metadata.Name, dependencies)
     if isValidDependencies then
-        Validator.__dependant[metadata.Name] = content
+        PackageAnalyzer.__dependant[metadata.Name] = content
         return true
     end
 
@@ -117,7 +117,7 @@ local function ClassifyPackageDependencies(metadata, mainPath)
 end
 
 -- Main validate function
-function Validator.check(packages: {[number]: any})
+function PackageAnalyzer.analyze(packages: {[number]: any})
     for _, instance in pairs(packages) do
         local metadata = loadMetadataSafely(instance)
         if not metadata then continue end
@@ -131,9 +131,9 @@ function Validator.check(packages: {[number]: any})
 
         if not mainPath or not version then
             if not mainPath then 
-                ErrorHandler.ValidatorException.InvalidPath(metadata.Name, metadata.Main) 
+                ErrorHandler.AnalyzerException.InvalidPath(metadata.Name, metadata.Main) 
             elseif not version then
-                ErrorHandler.ValidatorException.VersionFormatInvalid(metadata.Name) 
+                ErrorHandler.AnalyzerException.VersionFormatInvalid(metadata.Name) 
             end
             continue
         end
@@ -142,7 +142,7 @@ function Validator.check(packages: {[number]: any})
         ClassifyPackageDependencies(metadata, mainPath)
     end
 
-    return Validator.__leaf, Validator.__dependant
+    return PackageAnalyzer.__rootPackages, PackageAnalyzer.__dependentPackages
 end
 
-return Validator
+return PackageAnalyzer

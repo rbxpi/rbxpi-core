@@ -19,11 +19,11 @@ ErrorHandler.__runtimeErrors = {
 }
 
 ErrorHandler.__loadingErrors = {
-    Scanner = {
+    Registry = {
         DuplicatePackage = 201,
     },
 
-    Validator = {
+    PackageAnalyzer = {
         MetadataNotFound = 301,
         MissingMetadataField = 302,
         LicenseFormatInvalid = 303,
@@ -103,85 +103,85 @@ function ErrorHandler.BootstrapException.AlreadyInitialized()
     })
 end
 
-ErrorHandler.ScannerException = {}
+ErrorHandler.RegistryException = {}
 
-function ErrorHandler.ScannerException.DuplicatePackage(packageName: string)
+function ErrorHandler.RegistryException.DuplicatePackage(packageName: string)
     throw({
-        Code=ErrorHandler.__loadingErrors.Scanner.DuplicatePackage,
+        Code=ErrorHandler.__loadingErrors.Registry.DuplicatePackage,
         Level="WARN",
         Message=("Duplicate package '%s' detected."):format(packageName)
     })
 end
 
-ErrorHandler.ValidatorException = {}
+ErrorHandler.AnalyzerException = {}
 
-function ErrorHandler.ValidatorException.MetadataNotFound(packageName: string)
+function ErrorHandler.AnalyzerException.MetadataNotFound(packageName: string)
     throw({
-        Code=ErrorHandler.__loadingErrors.Validator.MetadataNotFound,
+        Code=ErrorHandler.__loadingErrors.PackageAnalyzer.MetadataNotFound,
         Level="WARN",
         Message=("Package '%s' does not contain metadata."):format(packageName)
     })
 end
 
-function ErrorHandler.ValidatorException.MissingMetadataField(packageName: string, field: string)
+function ErrorHandler.AnalyzerException.MissingMetadataField(packageName: string, field: string)
     throw({
-        Code=ErrorHandler.__loadingErrors.Validator.MissingMetadataField,
+        Code=ErrorHandler.__loadingErrors.PackageAnalyzer.MissingMetadataField,
         Level="WARN",
         Message=("Package '%s' is missing metadata field '%s'."):format(packageName, field)
     })
 end
 
-function ErrorHandler.ValidatorException.InvalidMetadataFormat(packageName: string, field: string)
+function ErrorHandler.AnalyzerException.InvalidMetadataFormat(packageName: string, field: string)
     throw({
-        Code=ErrorHandler.__loadingErrors.Validator.InvalidMetadataFormat,
+        Code=ErrorHandler.__loadingErrors.PackageAnalyzer.InvalidMetadataFormat,
         Level="WARN",
         Message=("Package '%s' has an invalid metadata field : '%s'."):format(packageName, field)
     })
 end
 
-function ErrorHandler.ValidatorException.LicenseFormatInvalid(packageName: string)
+function ErrorHandler.AnalyzerException.LicenseFormatInvalid(packageName: string)
     throw({
-        Code=ErrorHandler.__loadingErrors.Validator.LicenseFormatInvalid,
+        Code=ErrorHandler.__loadingErrors.PackageAnalyzer.LicenseFormatInvalid,
         Level="WARN",
         Message=("Package '%s' has an invalid license format."):format(packageName)
     })
 end
 
-function ErrorHandler.ValidatorException.InvalidPath(packageName: string, filePath: string)
+function ErrorHandler.AnalyzerException.InvalidPath(packageName: string, filePath: string)
     throw({
-        Code=ErrorHandler.__loadingErrors.Validator.InvalidPath,
+        Code=ErrorHandler.__loadingErrors.PackageAnalyzer.InvalidPath,
         Level="WARN",
         Message=("Path '%s' is invalid in the package %s."):format(filePath, packageName)
     })
 end
 
-function ErrorHandler.ValidatorException.MetadataLoadingFailed(packageName: string)
+function ErrorHandler.AnalyzerException.MetadataLoadingFailed(packageName: string)
     throw({
-        Code=ErrorHandler.__loadingErrors.Validator.MetadataLoadFailed,
+        Code=ErrorHandler.__loadingErrors.PackageAnalyzer.MetadataLoadFailed,
         Level="WARN",
         Message=("Failed to load metadata for the package %s."):format(packageName)
     })
 end
 
-function ErrorHandler.ValidatorException.InvalidName(packageName: string, metadataName: string)
+function ErrorHandler.AnalyzerException.InvalidName(packageName: string, metadataName: string)
     throw({
-        Code=ErrorHandler.__loadingErrors.Validator.InvalidName,
+        Code=ErrorHandler.__loadingErrors.PackageAnalyzer.InvalidName,
         Level="WARN",
         Message=("Package name '%s' does not match the metadata name %s."):format(packageName, metadataName)
     })
 end
 
-function ErrorHandler.ValidatorException.InvalidDependency(packageName: string)
+function ErrorHandler.AnalyzerException.InvalidDependency(packageName: string)
     throw({
-        Code=ErrorHandler.__loadingErrors.Validator.InvalidDependency,
+        Code=ErrorHandler.__loadingErrors.PackageAnalyzer.InvalidDependency,
         Level="WARN",
         Message=("Path '%s' has an invalid dependency."):format(packageName)
     })
 end
 
-function ErrorHandler.ValidatorException.VersionFormatInvalid(packageName: string)
+function ErrorHandler.AnalyzerException.VersionFormatInvalid(packageName: string)
 	throw({
-        Code=ErrorHandler.__loadingErrors.Validator.VersionFormatInvalid,
+        Code=ErrorHandler.__loadingErrors.PackageAnalyzer.VersionFormatInvalid,
         Level="WARN",
         Message=("Path '%s' has an invalid dependency."):format(packageName)
     })

@@ -24,7 +24,7 @@ function ResolvePath.resolve(packageName: string, package: Instance, filePath: s
     for _, part in ipairs(pathSegments) do
         currentObject = currentObject:FindFirstChild(part)
         if not currentObject then
-            ErrorHandler.ValidatorException.InvalidPath(packageName, filePath)
+            ErrorHandler.AnalyzerException.InvalidPath(packageName, filePath)
             return nil
         end
     end

@@ -28,11 +28,11 @@ local Internal = Include:WaitForChild("Internal")
 
 local ErrorHandler = require(Include.ErrorHandler)
 local Bootstrap = require(Include.Bootstrap)
-local Registry = require(Internal.Registry)
+local InternalPackageRegistry = require(Internal.InternalPackageRegistry)
 
 -- Helper function to handle package retrieval
 local function handler(key: any): any
-    return Registry[key]
+    return InternalPackageRegistry[key]
 end
 
 --[[ API Implementation ]]

@@ -11,9 +11,9 @@ local Include = RbxPI:WaitForChild("Include")
 
 local ErrorHandler = require(Include.ErrorHandler)
 
-local Dependencies = {}
+local DependencyValidator = {}
 
-function Dependencies.check(packageName: string, packageDependencies): boolean
+function DependencyValidator.validate(packageName: string, packageDependencies): boolean
     local notFound = packageDependencies
     for _, dependency in pairs(packageDependencies) do
         for index, package in pairs(Lib:GetChildren()) do
@@ -34,4 +34,4 @@ function Dependencies.check(packageName: string, packageDependencies): boolean
     return true
 end
 
-return Dependencies
+return DependencyValidator

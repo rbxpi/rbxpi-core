@@ -22,8 +22,8 @@ local Internal = Include:WaitForChild("Internal")
 
 local ErrorHandler = require(Include.ErrorHandler)
 local InternalLoader = require(Internal.InternalLoader)
-local PackageScanner = require(Internal.PackageScanner)
-local Validator = require(Internal.Validator)
+local PackageRegistry = require(Internal.PackageRegistry)
+local PackageAnalyzer = require(Internal.PackageAnalyzer)
 local LoadPackage = require(Internal.LoadPackage)
 
 local Bootstrap = {}
@@ -54,8 +54,8 @@ function Bootstrap.init(): boolean
     Bootstrap.__state = "booting"
 
     Bootstrap.__packages._core = InternalLoader.init()
-    local Packages = PackageScanner.scan()
-    Bootstrap.__packages._leaf, Bootstrap.__packages._dependant = Validator.check(Packages)
+    local Packages = PackageRegistry.scan()
+    Bootstrap.__packages._leaf, Bootstrap.__packages._dependant = PackageAnalyzer.analyze(Packages)
 
     LoadPackage.load(Bootstrap.__packages)
 

@@ -11,7 +11,7 @@ local RbxPI = ReplicatedStorage:WaitForChild("RbxPI")
 local Include = RbxPI:WaitForChild("Include")
 local Internal = Include:WaitForChild("Internal")
 
-local Registry = require(Internal.Registry)
+local InternalPackageRegistry = require(Internal.InternalPackageRegistry)
 local ErrorHandler = require(Include.ErrorHandler)
 
 local LoadPackage = {}
@@ -28,14 +28,14 @@ function LoadPackage.load(packages)
     local function loadFrom(container)
         for index, value in pairs(container) do
             if container == packages._core then
-                Registry[index] = value
+                InternalPackageRegistry[index] = value
             else
-                Registry[index] = {}
+                InternalPackageRegistry[index] = {}
                 for _, category in pairs(value) do
                     if type(category) == "table" then
-                        mergeInto(Registry[index], category)
+                        mergeInto(InternalPackageRegistry[index], category)
                     else
-                        mergeInto(Registry[index], require(category))
+                        mergeInto(InternalPackageRegistry[index], require(category))
                     end
                 end
             end
