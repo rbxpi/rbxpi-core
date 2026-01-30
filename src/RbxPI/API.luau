@@ -41,13 +41,29 @@ end
 -- These may include utility functions, data structures, and other components.
 -- Please do not modify this file directly.
 local API = {}:: {
-    -- Internal API Metadata
+    --[Internal API Metadata]----------
     version: string,
     author: string,
     license: string,
     copyright: string,
     url: string,
-    licenseinfo: string
+    licenseinfo: string,
+
+    --[logging API]--------------------
+    logging: {
+        log: (message: string, level: string) -> nil,
+        getLevel: (name: string) -> { index: number, flags: { string } },
+        addLevel: (name: string, index: number, flags: { string }?, autoFixIndex: boolean) -> boolean,
+        removeLevel: (name: string) -> { },
+        getLogs: () -> { string },
+        clearLogs: () -> { },
+
+        -- Additional logging methods can be added here
+        info: (message: string) -> nil,
+        warn: (message: string) -> nil,
+        error: (message: string) -> nil,
+        -- ...
+    }
 }
 
 setmetatable(API, {
