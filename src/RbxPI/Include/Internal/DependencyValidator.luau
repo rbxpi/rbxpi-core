@@ -15,8 +15,8 @@ local DependencyValidator = {}
 
 function DependencyValidator.validate(packageName: string, packageDependencies): boolean
     local notFound = packageDependencies
-    for _, dependency in pairs(packageDependencies) do
-        for index, package in pairs(Lib:GetChildren()) do
+    for index, dependency in pairs(packageDependencies) do
+        for _, package in pairs(Lib:GetChildren()) do
             if package.Name == dependency then
                 table.remove(notFound, index)
                 break
