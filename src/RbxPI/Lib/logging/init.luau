@@ -9,7 +9,7 @@ local LICENSE = require(script.LICENSE)
 return {
     Name = "logging",
     Version = {2, 1, 0, 'final', 0},
-    Description = "Logging Description",
+    Description = "Advanced Logging",
     Main = "out/index.luau",
     Author = "BlockGuard Software Foundation (https://github.com/blockguard-sf)",
     License = {LICENSE[1], LICENSE[2]},
