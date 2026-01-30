@@ -84,15 +84,13 @@ function Handlers.__construct(message: string, executionContext: string, logLeve
     local timestamp = Handlers.__internal.timestamp("%Y-%m-%d %H:%M:%S")
     local level = Handlers.getLevel(logLevel)
 
-    print(timestamp)
-
     if table.find(level.flags, "advancedOutput") then 
         executionContext = if executionContext == "SERVER" then "Script" else "LocalScript"
         return Handlers.__internal.formatString("[%s] %s - %s: \"%s.luau\", Line: %s\n		Message: \"%s\"\n		Stack Trace: %s", 
-            logLevel, timestamp, executionContext, callerInfo.scriptObject, callerInfo.lineNumber, message, callerInfo.rawTrace
+            logLevel, tostring(timestamp), executionContext, callerInfo.scriptObject, callerInfo.lineNumber, message, callerInfo.rawTrace
         )
     end
-    return Handlers.__internal.formatString("[%s] [%s] - %s", timestamp, executionContext, message)
+    return Handlers.__internal.formatString("[%s] [%s] - %s", tostring(timestamp), executionContext, message)
 end
 
 --- Adds a new log level with a specified name, index, and optional settings.
