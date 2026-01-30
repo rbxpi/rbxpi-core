@@ -183,17 +183,17 @@ function ErrorHandler.AnalyzerException.VersionFormatInvalid(packageName: string
 	throw({
         Code=ErrorHandler.__loadingErrors.PackageAnalyzer.VersionFormatInvalid,
         Level="WARN",
-        Message=("Path '%s' has an invalid dependency."):format(packageName)
+        Message=("Invalid version format in '%s'."):format(packageName)
     })
 end
 
 ErrorHandler.DependencyException = {}
 
-function ErrorHandler.DependencyException.InvalidDependency(packageName)
+function ErrorHandler.DependencyException.InvalidDependency(packageName, dependencies)
     throw({
         Code=ErrorHandler.__loadingErrors.Dependencies.InvalidDependency,
         Level="WARN",
-        Message=("Invalid version format in '%s'."):format(packageName)
+        Message=("Path '%s' has an invalid dependency: %s"):format(packageName, dependencies)
     })
 end
 
