@@ -109,7 +109,7 @@ local function ClassifyPackageDependencies(metadata, mainPath)
 
     local isValidDependencies = DependencyValidator.validate(metadata.Name, dependencies)
     if isValidDependencies then
-        PackageAnalyzer.__dependant[metadata.Name] = content
+        PackageAnalyzer.__dependentPackages[metadata.Name] = content
         return true
     end
 
