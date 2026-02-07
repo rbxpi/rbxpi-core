@@ -58,21 +58,7 @@ Even if you've never contributed to GitHub before, we would appreciate any contr
 
 #### Download & Install automatically
 
-```bash
-git clone https://github.com/rbxpi/rbxmanager
-```
-
-```bash
-cd rbxmanager
-```
-
-```bash
-pip install -r requirements.txt
-```
-
-```bash
-python rbxmanager
-```
+Install RbxPI more easily by following the [documentation](https://rbxpi.github.io/rbxpi-core/guide/quick-start#roblox-install-manager).
 
 #### Install manually
 
