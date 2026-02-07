@@ -62,6 +62,7 @@ local API = {}:: {
         info: (message: string) -> nil,
         warn: (message: string) -> nil,
         error: (message: string) -> nil,
+        debug: (message: string) -> nil
         -- ...
     }
 }
