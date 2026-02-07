@@ -62,7 +62,7 @@ end
 --- Retrieves the details of a specified log level or returns the complete list of log __levels.
 --- @param levelName string? The name of the log level to retrieve. If nil, returns all log __levels.
 --- @return table The details of the specified log level or the complete list of __levels if no specific level is provided.
-function Handlers.getLevel(levelName: string?): { [string]: any}
+function Handlers.getLevel(levelName: string?): { index: number, flags: { string } } | { [string]: { index: number, flags: { string } } }
     if levelName then 
         levelName = string.upper(levelName)
         if type(levelName) == "string" and Handlers.__levels[levelName] then
@@ -99,7 +99,7 @@ end
 --- @param flags table? A table of optional settings for the log level (e.g., {"canWarn", "advancedOutput"}).
 --- @param autoFixIndex boolean Determines whether to automatically adjust invalid __levels (default: true).
 --- @return boolean Returns true if the log level was added successfully, false otherwise.
-function Handlers.addLevel(name: string, index: number, flags: {string}?, autoFixIndex: boolean): boolean
+function Handlers.addLevel(name: string, index: number, flags: {string}?, autoFixIndex: boolean?): boolean
     local success, err = pcall(function(): boolean
         name = string.upper(tostring(name))
         autoFixIndex = if autoFixIndex == nil then true else autoFixIndex
@@ -122,12 +122,12 @@ end
 --- Removes an existing log level by its name.
 --- @param name string The name of the log level to be removed.
 --- @return table The updated list of log levels after removal.
-function Handlers.removeLevel(name: string): { }
+function Handlers.removeLevel(name: string): nil
     name = string.upper(tostring(name))
     if Handlers.getLevel(name) then 
         Handlers.__levels[name] = nil
     end
-    return Handlers.__levels
+    return nil
 end
 
 return Handlers

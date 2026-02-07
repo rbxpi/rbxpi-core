@@ -51,12 +51,13 @@ local API = {}:: {
 
     --[logging API]--------------------
     logging: {
+        config: (configTable: { threshold: string?, autoDebug: boolean?, logger: boolean? }) -> nil,
         log: (message: string, level: string) -> nil,
-        getLevel: (name: string) -> { index: number, flags: { string } },
-        addLevel: (name: string, index: number, flags: { string }?, autoFixIndex: boolean) -> boolean,
-        removeLevel: (name: string) -> { },
+        getLevel: (name: string?) -> { index: number, flags: { string } } | { [string]: { index: number, flags: { string } } },
+        addLevel: (name: string, index: number, flags: { string }?, autoFixIndex: boolean?) -> boolean,
+        removeLevel: (name: string) -> nil,
         getLogs: () -> { string },
-        clearLogs: () -> { },
+        clearLogs: () -> nil,
 
         -- Additional logging methods can be added here
         info: (message: string) -> nil,

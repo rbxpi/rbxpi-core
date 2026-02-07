@@ -20,9 +20,9 @@ end
 
 --- Clears all stored log entries.
 --- @return table Returns an empty table after clearing the logs.
-function Logger.clearLogs(): { }
+function Logger.clearLogs(): nil
     Logger.__data = {}
-    return Logger.__data
+    return nil
 end
 
 --- Retrieves the stored log entries.
