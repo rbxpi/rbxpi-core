@@ -36,3 +36,11 @@ They are part of the internal implementation and may be modified or removed with
 ## Standard Library
 
 The RbxPI standard library exclusively includes packages created and maintained by [BlockGuard SF](https://github.com/blockguard-sf).
+
+:::: card-grid
+::: card title="Generic Operating System Services"
+- [logging - Advanced Logging](./stdlib/logging)
+
+:::
+
+::::

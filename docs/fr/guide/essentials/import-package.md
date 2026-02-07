@@ -49,7 +49,7 @@ print(VersionRbxPI)
 ::: tabs
 @tab Rojo & GitHub
 
-Si vous avez installé RbxPI via [Rojo & GitHub](quick-start.md#installer-via-rojo-github), vous devez obtenir une structure similaire à la suivante:
+Si vous avez installé RbxPI via [Rojo & GitHub](../quick-start.md#installer-via-rojo-github) ou [rbxmanager](../quick-start.md#gestionnaire-dinstallation-roblox), vous devez obtenir une structure similaire à la suivante:
 
 ::: code-tree title="RbxPI" height="400px" entry="src/ServerScriptService/script.server.luau"
 ```luau title="src/ReplicatedStorage/RbxPI/API.luau"

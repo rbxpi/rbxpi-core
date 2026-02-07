@@ -49,3 +49,6 @@ sourcemap.json
 /docs/.vuepress/.cache
 /docs/.vuepress/.temp
 node_modules
+
+# Visual Studio Code
+/.vscode

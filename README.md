@@ -1,5 +1,5 @@
 <div align="center"><img width=25% src="assets/blockguard-sf-logo.png"></div>
-<h1 align="center"><a href="https://blockguard-sf.github.io/RoLib/">RbxPI | 1.0.1 - 2026.01.24 release</a></h1>
+<h1 align="center"><a href="https://blockguard-sf.github.io/RoLib/">RbxPI | 1.1.0 - 2026.xx.xx release</a></h1>
 <div align="center">Roblox Package Index</div>
 <br>
 <div align="center">
@@ -58,20 +58,17 @@ Even if you've never contributed to GitHub before, we would appreciate any contr
 
 #### Download & Install automatically
 
-> [!Caution]
-> This method is currently under development.
-> Please refer to the [manual installation](#install-manually) method.
+Install RbxPI more easily by following the [documentation](https://rbxpi.github.io/rbxpi-core/guide/quick-start#roblox-install-manager).
 
 #### Install manually
 
 ```bash
-$ git clone https://github.com/rbxpi/rbxpi-core
+git clone https://github.com/rbxpi/rbxpi-core
 ```
 
 ```bash
-$ cp /path/to/rbxpi-core/src /path/to/replicatedstorage/of/your/project/
+cp /path/to/rbxpi-core/src /path/to/replicatedstorage/of/your/project/
 ```
-
 
 ## Documentation
 

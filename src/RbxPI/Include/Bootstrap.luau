@@ -22,8 +22,8 @@ local Internal = Include:WaitForChild("Internal")
 
 local ErrorHandler = require(Include.ErrorHandler)
 local InternalLoader = require(Internal.InternalLoader)
-local PackageScanner = require(Internal.PackageScanner)
-local Validator = require(Internal.Validator)
+local PackageRegistry = require(Internal.PackageRegistry)
+local PackageAnalyzer = require(Internal.PackageAnalyzer)
 local LoadPackage = require(Internal.LoadPackage)
 
 local Bootstrap = {}
@@ -36,8 +36,8 @@ local Bootstrap = {}
 Bootstrap.__state = "init"
 Bootstrap.__packages = {
     _core = {},         -- Critical system packages (loaded FIRST)
-    _stdlib = {},       -- Standard utility packages (loaded SECOND)
-    _thirdparty = {}    -- External or optional packages (loaded LAST)
+    _leaf = {},         -- Standard utility packages (loaded SECOND)
+    _dependant = {}     -- External or optional packages (loaded LAST)
 }
 
 setmetatable(Bootstrap, {
@@ -54,8 +54,8 @@ function Bootstrap.init(): boolean
     Bootstrap.__state = "booting"
 
     Bootstrap.__packages._core = InternalLoader.init()
-    local Packages = PackageScanner.scan()
-    Bootstrap.__packages._stdlib, Bootstrap.__packages._thirdparty = Validator.check(Packages)
+    local Packages = PackageRegistry.scan()
+    Bootstrap.__packages._leaf, Bootstrap.__packages._dependant = PackageAnalyzer.analyze(Packages)
 
     LoadPackage.load(Bootstrap.__packages)
 

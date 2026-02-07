@@ -54,6 +54,7 @@ The following table establishes a correspondence between the codes and their ori
 | 305 | Failed to load the requested package's metadata. |
 | 306 | Inconsistency between the requested package name and the name specified in its metadata. |
 | 307 | The dependency format for the requested package is invalid. |
+| 308 | The format of the version specified in the metadata of the requested package is invalid. |
 
 
 | Code | Dependencies Message `401`-`499` |

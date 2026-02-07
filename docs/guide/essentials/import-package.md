@@ -1,5 +1,5 @@
 ---
-title: import-package
+title: Import Package
 createTime: 2026/01/24 12:58:20
 permalink: /guide/essentials/import-package/
 ---
@@ -50,7 +50,7 @@ print(VersionRbxPI)
 ::: tabs
 @tab Rojo & GitHub
 
-If you installed RbxPI via [Rojo & GitHub](../quick-start.md#install-via-rojo--github), you should obtain a structure similar to the following:
+If you installed RbxPI via [Rojo & GitHub](../quick-start.md#install-via-rojo--github) or [rbxmanager](../quick-start.md#roblox-install-manager), you should obtain a structure similar to the following:
 
 ::: code-tree title="RbxPI" height="400px" entry="src/ServerScriptService/script.server.luau"
 ```luau title="src/ReplicatedStorage/RbxPI/API.luau"

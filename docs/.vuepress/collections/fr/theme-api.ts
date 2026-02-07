@@ -19,7 +19,14 @@ export const themeAPI: ThemeCollectionItem = defineCollection({
             text: "Bibliothèque Standard",
             prefix: 'stdlib/',
             collapsed: false,
-            items: []
+            items: [
+                {
+                    text: 'Services Génériques de Système d\'Exploitation',
+                    items : [
+                        {text: 'logging', link: 'logging'},
+                    ]
+                }
+            ]
         }
     ],
 })

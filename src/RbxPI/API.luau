@@ -28,11 +28,11 @@ local Internal = Include:WaitForChild("Internal")
 
 local ErrorHandler = require(Include.ErrorHandler)
 local Bootstrap = require(Include.Bootstrap)
-local Registry = require(Internal.Registry)
+local InternalPackageRegistry = require(Internal.InternalPackageRegistry)
 
 -- Helper function to handle package retrieval
 local function handler(key: any): any
-    return Registry[key]
+    return InternalPackageRegistry[key]
 end
 
 --[[ API Implementation ]]
@@ -41,13 +41,31 @@ end
 -- These may include utility functions, data structures, and other components.
 -- Please do not modify this file directly.
 local API = {}:: {
-    -- Internal API Metadata
+    --[Internal API Metadata]----------
     version: string,
     author: string,
     license: string,
     copyright: string,
     url: string,
-    licenseinfo: string
+    licenseinfo: string,
+
+    --[logging API]--------------------
+    logging: {
+        config: (configTable: { threshold: string?, autoDebug: boolean?, logger: boolean? }) -> nil,
+        log: (message: string, level: string) -> nil,
+        getLevel: (name: string?) -> { index: number, flags: { string } } | { [string]: { index: number, flags: { string } } },
+        addLevel: (name: string, index: number, flags: { string }?, autoFixIndex: boolean?) -> boolean,
+        removeLevel: (name: string) -> nil,
+        getLogs: () -> { string },
+        clearLogs: () -> nil,
+
+        -- Additional logging methods can be added here
+        info: (message: string) -> nil,
+        warn: (message: string) -> nil,
+        error: (message: string) -> nil,
+        debug: (message: string) -> nil
+        -- ...
+    }
 }
 
 setmetatable(API, {

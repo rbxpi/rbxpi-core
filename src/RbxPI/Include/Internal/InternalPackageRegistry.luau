@@ -10,6 +10,6 @@ package scanner, and validator. It is not part of the public API and must
 only be used by internal RbxPI components.
 ]]
 
-local Registry = {}
+local InternalPackageRegistry = {}
 
-return Registry
+return InternalPackageRegistry
