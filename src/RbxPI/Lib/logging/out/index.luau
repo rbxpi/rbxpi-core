@@ -69,6 +69,31 @@ function Module.log(message: string, level: string): nil
     return nil
 end
 
+--- Configures the logging module with specified settings.
+--- @param configTable { threshold: string?, autoDebug: boolean?, logger: boolean? } A table containing configuration options for the logging module.
+--- @return nil
+function Module.config(configTable: { threshold: string?, autoDebug: boolean?, logger: boolean? }): nil
+    if configTable.threshold then
+        local newThreshold = Handlers.getLevel(configTable.threshold)
+        if newThreshold then
+            Module.__threshold = newThreshold
+        else
+            warn("Invalid log level for threshold: " .. configTable.threshold)
+        end
+    end
+
+    if configTable.autoDebug ~= nil then
+        Module.__autoDebug = configTable.autoDebug
+        Module.__debug = if Module.__autoDebug and RunService:IsStudio() then true else false 
+    end
+
+    if configTable.logger ~= nil then
+        Module.__logger = configTable.logger
+    end
+
+    return nil
+end
+
 for name, _ in pairs(Handlers.getLevel()) do
     Module[string.lower(name)] = function(message: string): ()
         Module.log(message, name)
