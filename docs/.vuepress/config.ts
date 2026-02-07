@@ -22,6 +22,12 @@ export default defineUserConfig({
     markdown: {
       codeTree: true, 
       field: true, 
+      abbr: true, 
+      table: {
+        align: 'left',
+        maxContent: false,
+        fullWidth: true,
+      }
     },
 
     contributors: true,

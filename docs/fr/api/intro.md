@@ -36,3 +36,11 @@ Elles font partie de l’implémentation interne et peuvent être modifiées ou 
 ## Bibliothèque Standard
 
 La bibliothèque standard de RbxPI regroupe exclusivement les paquets créés et maintenus par [BlockGuard SF](https://github.com/blockguard-sf).
+
+:::: card-grid
+::: card title="Services Génériques de Système d'Exploitation"
+- [logging - Journalisation Avancés](./stdlib/logging)
+
+:::
+
+::::
