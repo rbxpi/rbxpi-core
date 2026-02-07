@@ -15,6 +15,42 @@ tags:
 
 Il existe différente façons d'installer RbxPI en fonction de votre environnement de développement.
 
+## Gestionnaire d'Installation Roblox <Badge type="tip" text="Recommandé" />
+
+Le **Gestionnaire d'Installation Roblox** est un programme permettant d'installer et de mettre à jour RbxPI de manière la plus simple possible.
+
+<RepoCard repo="rbxpi/rbxmanager" />
+
+::: note Il est impossible de mettre à jour RbxPI si votre installation n'a pas était faite via [Rojo](https://rojo.space/)
+:::
+
+Pour pouvoir installer rbxmanager veuillez suivre ces étapes:
+
+:::: steps
+
+- #### Cloner le dépôt Git de rbxmanager
+  ```sh
+  git clone https://github.com/rbxpi/rbxmanager
+  ```
+
+- #### Aller dans le répertoire de rbxmanager
+  ```sh
+  cd rbxmanager
+  ```
+
+- #### Installer les dépendances nécessaire
+  ```sh
+  pip install -r requirements.txt
+  ```
+
+- #### Lancer le programme
+  ```sh
+  python3 rbxmanager
+  ```
+
+- #### Suivre les étapes d'installation de rbxmanager
+::::
+
 ## Installer via Roblox Studio <Badge type="tip" text="Recommandé pour les débutants" />
 
 Si vous utilisez simplement [Roblox Studio](https://create.roblox.com/docs/fr-fr), vous pouvez installer le modèle depuis le [marché des créateurs](https://create.roblox.com/store/asset/72160239405840/RbxPI-Roblox-Package-Index) sur Roblox directement. Cela permet d'installer RbxPI de la façon la plus simple et sécurisé possible.
@@ -41,10 +77,6 @@ Si vous voulez installer RbxPI ailleur que sur Roblox Studio vous devez tout d'a
 - [Rojo v7](https://rojo.space/docs/v7/getting-started/installation/) ou une version supérieur.
 - Une [implémentation d'un serveur de langage](https://marketplace.visualstudio.com/items?itemName=JohnnyMorganz.luau-lsp) pour le langage de programmation [Luau](https://github.com/Roblox/luau).
 - La dernière version de [Git](https://git-scm.com)
-
-### Installation en Ligne de Commande <Badge type="tip" text="Recommandé" />
-
-Actuellement non-disponible.
 
 ### Installation Manuelle
 
@@ -114,7 +146,7 @@ Si vous voulez installer RbxPI manuellement veuillez suivrez ces étapes:
 
 ## Structure du Répertoire
 
-Pour les projets créés via l'outil en [ligne de commande](#installation-en-ligne-de-commande), la structure de fichiers typique est la suivante :
+Pour les projets créés via l'outil [rbxmanager](#gestionnaire-dinstallation-roblox), la structure de fichiers typique est la suivante :
 
 ::: file-tree
 

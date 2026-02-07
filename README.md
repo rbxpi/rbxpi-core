@@ -58,20 +58,31 @@ Even if you've never contributed to GitHub before, we would appreciate any contr
 
 #### Download & Install automatically
 
-> [!Caution]
-> This method is currently under development.
-> Please refer to the [manual installation](#install-manually) method.
+```bash
+git clone https://github.com/rbxpi/rbxmanager
+```
+
+```bash
+cd rbxmanager
+```
+
+```bash
+pip install -r requirements.txt
+```
+
+```bash
+python rbxmanager
+```
 
 #### Install manually
 
 ```bash
-$ git clone https://github.com/rbxpi/rbxpi-core
+git clone https://github.com/rbxpi/rbxpi-core
 ```
 
 ```bash
-$ cp /path/to/rbxpi-core/src /path/to/replicatedstorage/of/your/project/
+cp /path/to/rbxpi-core/src /path/to/replicatedstorage/of/your/project/
 ```
-
 
 ## Documentation
 

@@ -15,6 +15,42 @@ tags:
 
 There are different ways to install RbxPI depending on your development environment.
 
+## Roblox Install Manager <Badge type="tip" text="Recommandé" />
+
+The **Roblox Install Manager** is a program that allows you to install and update RbxPI as easily as possible.
+
+<RepoCard repo="rbxpi/rbxmanager" />
+
+::: note It is impossible to update RbxPI if your installation was not done via [Rojo](https://rojo.space/).
+:::
+
+To install rbxManager, please follow these steps:
+
+:::: steps
+
+- #### Clone the Git repository of rbxmanager
+  ```sh
+  git clone https://github.com/rbxpi/rbxmanager
+  ```
+
+- #### Go to the RbxManager directory.
+  ```sh
+  cd rbxmanager
+  ```
+
+- #### Install the required dependencies
+  ```sh
+  pip install -r requirements.txt
+  ```
+
+- #### Run the program
+  ```sh
+  python3 rbxmanager
+  ```
+
+- #### Follow the rbxmanager installation steps
+::::
+
 ## Install via Roblox Studio <Badge type="tip" text="Recommended for beginners" />
 
 If you are simply using [Roblox Studio](https://create.roblox.com/docs/fr-fr), you can install the model directly from the [Creator Marketplace](https://create.roblox.com/store/asset/72160239405840/RbxPI-Roblox-Package-Index) on Roblox. This allows you to install RbxPI in the simplest and most secure way possible.
@@ -41,10 +77,6 @@ If you want to install RbxPI anywhere other than Roblox Studio, you must first h
 * [Rojo v7](https://rojo.space/docs/v7/getting-started/installation/) or a later version
 * An [implementation of a language server](https://marketplace.visualstudio.com/items?itemName=JohnnyMorganz.luau-lsp) for the [Luau](https://github.com/Roblox/luau) programming language
 * The latest version of [Git](https://git-scm.com)
-
-### Command-Line Installation <Badge type="tip" text="Recommended" />
-
-Currently unavailable.
 
 ### Manual Installation
 
@@ -114,7 +146,7 @@ If you want to install RbxPI manually, please follow these steps:
 
 ## Directory Structure
 
-For projects created via the [command-line](#command-line-installation) tool, the typical file structure is as follows:
+For projects created via [rbxmanager](#roblox-install-manager) tool, the typical file structure is as follows:
 
 ::: file-tree
 
