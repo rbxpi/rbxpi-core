@@ -54,6 +54,7 @@ Le tableau suivant établit une correspondance entre les codes et leurs chaînes
 | 305 | Le chargement des métadonnées du paquet demandé a échoué. |
 | 306 | Incohérence entre le nom du paquet demandé et celui spécifié dans ses métadonnées. |
 | 307 | Le format des dépendances du paquet demandé est invalide. |
+| 308 | Le format de la version spécifiée dans les métadonnées du paquet demandé est invalide. |
 
 
 | Code | Message `401`-`499` Dépendances|

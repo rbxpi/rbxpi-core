@@ -29,7 +29,8 @@ export const themeGuide: ThemeCollectionItem = defineCollection({
             collapsed: false,
             prefix: 'features/',
             items: [
-                'autocomplete'
+                'autocomplete',
+                'versionning'
             ],
         }
     ],

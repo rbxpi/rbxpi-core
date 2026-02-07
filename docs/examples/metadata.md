@@ -19,7 +19,7 @@ local LICENSE = require(script.LICENSE)
 
 return {
     Name = "__rhello__",
-    Version = "1.0.0",
+    Version = {1, 0, 0, 'final', 0},
     Description = "A simple example of a package.",
     Main = "Out/Index.luau",
     Author = "RbxPI (https://github.com/rbxpi)",

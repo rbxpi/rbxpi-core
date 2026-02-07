@@ -1,5 +1,5 @@
 ---
-title: import-package
+title: Import Package
 createTime: 2026/01/24 12:58:20
 permalink: /guide/essentials/import-package/
 ---
