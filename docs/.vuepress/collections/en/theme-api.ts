@@ -25,8 +25,13 @@ export const themeAPI: ThemeCollectionItem = defineCollection({
                     items : [
                         {text: 'logging', link: 'logging'},
                     ]
+                },
+                {
+                    text: 'Services Runtime',
+                    items : [
+                        {text: 'versionning', link: 'versionning'},
+                    ]
                 }
-
             ]
         }
     ],

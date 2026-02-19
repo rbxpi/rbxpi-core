@@ -65,7 +65,12 @@ local API = {}:: {
         error: (message: string) -> nil,
         debug: (message: string) -> nil
         -- ...
-    }
+    },
+
+    --[versionning API]------------------
+    versionning: {
+        getVersion: (version: { major: number, minor: number, patch: number, type: string, build: number? }) -> string
+    },
 }
 
 setmetatable(API, {

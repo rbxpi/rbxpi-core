@@ -1,5 +1,5 @@
 <div align="center"><img width=25% src="assets/blockguard-sf-logo.png"></div>
-<h1 align="center"><a href="https://blockguard-sf.github.io/RoLib/">RbxPI | 1.1.0 - 2026.02.07 release</a></h1>
+<h1 align="center"><a href="https://blockguard-sf.github.io/RoLib/">RbxPI | 1.1.1 - 2026.02.19 release</a></h1>
 <div align="center">Roblox Package Index</div>
 <br>
 <div align="center">
